@@ -871,24 +871,12 @@ video {
   --tw-bg-opacity: 0.5;
 }
 
-.bg-\[url\(\'arquivos\/imagens\/capa\.png\'\)\] {
-  background-image: url('arquivos/imagens/capa.png');
+.bg-\[url\(\'\/arquivos\/imagens\/capa\.jpg\'\)\] {
+  background-image: url('/arquivos/imagens/capa.jpg');
 }
 
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-}
-
-.bg-\[url\(\'arquivos\/imagens\/capa\.jpg\'\)\] {
-  background-image: url('arquivos/imagens/capa.jpg');
-}
-
-.bg-\[url\(\'C\:\\Users\\guhco\\Downloads\\Projetos\\Web\\Neto\\arquivos\\imagens\\capa\.jpg\'\)\] {
-  background-image: url('C:\Users\guhco\Downloads\Projetos\Web\Neto\arquivos\imagens\capa.jpg');
-}
-
-.bg-\[url\(\'\/arquivos\/imagens\/capa\.jpg\'\)\] {
-  background-image: url('/arquivos/imagens/capa.jpg');
 }
 
 .from-\[\#00EBAA\] {
