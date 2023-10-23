@@ -879,6 +879,10 @@ video {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
 
+.bg-\[url\(\'\/\'\)\] {
+  background-image: url('/');
+}
+
 .from-\[\#00EBAA\] {
   --tw-gradient-from: #00EBAA var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 235 170 / 0) var(--tw-gradient-to-position);
