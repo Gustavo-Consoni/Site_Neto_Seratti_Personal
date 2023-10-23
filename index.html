@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.1/dist/cdn.min.js"></script>
+    <link href="dist/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <title>Consultoria - Neto Seratti</title>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body x-data="{ sidebar: false, open: null }">
+
+    <!-- Home -->
+    <div class="relative h-screen bg-[url('/arquivos/imagens/capa.jpg')] bg-cover bg-[top_left_-10rem] xl:bg-center bg-no-repeat">
+
+        <!-- Navbar -->
+        <div class="w-full absolute top-0 z-10 flex items-center justify-between text-white max-xl:p-6 xl:p-12">
+            <p class="text-2xl xl:text-4xl font-semibold">NETO SERATTI</p>
+            <div class="max-xl:hidden flex items-center text-sm xl:text-lg font-medium space-x-12 xl:space-x-24">
+                <a href="#apresentacao">APRESENTAÇÃO</a>
+                <a href="#depoimentos">DEPOIMENTOS</a>
+                <a href="#planos">PLANOS</a>
+                <a href="#duvidas">DÚVIDAS</a>
+            </div>
+            <button class="xl:hidden" @click="sidebar = !sidebar">
+                <svg class="w-9 h-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile -->
+        <div :class="{ '-translate-x-64': sidebar }" class="fixed top-0 -right-64 z-20 flex flex-col justify-between w-64 h-full text-white bg-[#092934] transition-all duration-500">
+            <div>
+                <div class="flex items-center justify-between p-6">
+                    <p class="text-2xl font-semibold">MENU</p>
+                    <button @click="sidebar = !sidebar">
+                        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex flex-col text-sm px-6 pb-6 space-y-4">
+                    <div class="flex items-center border-b p-2 space-x-4">
+                        <img class="w-4 h-4" src="arquivos/icones/check.png">
+                        <a href="#apresentacao">APRESENTAÇÃO</a>
+                    </div>
+                    <div class="flex items-center border-b p-2 space-x-4">
+                        <img class="w-4 h-4" src="arquivos/icones/check.png">
+                        <a href="#depoimentos">DEPOIMENTOS</a>
+                    </div>
+                    <div class="flex items-center border-b p-2 space-x-4">
+                        <img class="w-4 h-4" src="arquivos/icones/check.png">
+                        <a href="#planos">PLANOS</a>
+                    </div>
+                    <div class="flex items-center border-b p-2 space-x-4">
+                        <img class="w-4 h-4" src="arquivos/icones/check.png">
+                        <a href="#duvidas">DÚVIDAS</a>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center text-white space-x-4">
+                    <a class="transition-transform ease-in-out hover:-translate-y-1 duration-500" href="">
+                        <img class="w-7 h-7" src="arquivos/icones/whatsapp.png">
+                    </a>
+                    <div class="border h-7"></div>
+                    <a class="transition-transform ease-in-out hover:-translate-y-1 duration-500" href="https://www.instagram.com/netoseratti/">
+                        <img class="w-7 h-7" src="arquivos/icones/instagram.png">
+                    </a>
+                </div>
+            </div>
+            <p class="text-2xl text-center font-semibold pb-6">NETO SERATTI</p>
+        </div>
+        <div class="fixed top-0 left-0 z-10 w-full h-full bg-black bg-opacity-50" x-show="sidebar" @click="sidebar = !sidebar" x-transition.opacity.duration.500ms></div>
+
+        <!-- Texto -->
+        <div class="absolute inset-0 flex flex-col items-center xl:items-end max-xl:justify-end xl:justify-center max-xl:text-center xl:text-right text-white max-xl:pb-12 xl:pr-12 space-y-4">
+            <p class="text-2xl xl:text-6xl xl:text-[#CEC746] font-semibold">SUA MELHOR FORMA <br> NUNCA ESTEVE TÃO PERTO</p>
+            <p class="max-xl:hidden text-sm xl:text-lg font-medium">"But I must explain to you how all this mistaken idea of denouncing <br> pleasure and praising pain was born and I will give system.</p>
+            <a class="text-xl xl:text-[#092934] font-bold rounded-md max-xl:bg-[#092934] xl:bg-[#CEC746] transition-transform ease-in-out hover:-translate-y-1 duration-500 px-9 py-3" href="#planos">COMECE AGORA!</a>
+        </div>
+
+        <!-- Contato -->
+        <div class="max-xl:hidden absolute bottom-12 right-12 z-10 flex items-center text-white space-x-8">
+            <a class="transition-transform ease-in-out hover:-translate-y-1 duration-500" href="">
+                <img class="w-10 h-10" src="arquivos/icones/whatsapp.png">
+            </a>
+            <div class="border h-10"></div>
+            <a class="transition-transform ease-in-out hover:-translate-y-1 duration-500" href="https://www.instagram.com/netoseratti">
+                <img class="w-10 h-10" src="arquivos/icones/instagram.png">
+            </a>
+        </div>
+
+    </div>
+
+
+
+    <!-- Apresentação -->
+    <div class="bg-gray-100 py-12 xl:py-16" id="apresentacao">
+        <div class="w-[90%] xl:w-[80%] text-[#092934] mx-auto space-y-12 xl:space-y-16">
+
+            <!-- Titulo -->
+            <div class="w-fit text-3xl xl:text-[3rem]/[3.5rem] text-center tracking-widest border-b-[3px] border-[#CEC746] mx-auto px-3 xl:px-12 pb-3">
+                <p>UM POUCO DA</p>
+                <p class="font-bold">MINHA HISTÓRIA</p>
+            </div>
+
+            <div class="flex max-xl:flex-col-reverse items-center justify-center mx-auto max-xl:space-y-reverse max-xl:space-y-12 xl:space-x-24">
+
+                <!-- Texto -->
+                <div class="max-xl:w-full xl:basis-1/2">
+                    <div class="w-full xl:ml-auto">
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+                            diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                            aliquam erat volutpat. <br><br>
+                            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                            Duis autem vel eum iriure dolor in hendrerit in vulputate velit
+                            esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
+                            at <br><br>
+                            Vero eros et accumsan et iusto odio dignissim qui blandit praesent
+                            luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                            Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Video -->
+                <div class="max-xl:w-full xl:basis-1/2">
+                    <div class="relative flex items-center justify-center w-full h-48 xl:h-96 rounded-2xl shadow-md bg-[#092934] xl:mr-auto">
+                        <svg class="absolute text-white w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Depoimentos em Video -->
+    <div class="bg-gray-800 py-12 xl:py-16" id="depoimentos">
+        <div class="w-[90%] xl:w-[80%] mx-auto space-y-12 xl:space-y-16">
+
+            <!-- Titulo -->
+            <div class="w-fit text-[1.65rem]/[2.25rem] xl:text-[3rem]/[3.5rem] text-white text-center tracking-widest border-b-[3px] border-[#CEC746] mx-auto px-3 xl:px-12 pb-3">
+                <p>DEPOIMENTOS</p>
+                <p class="font-bold">DOS MEUS ALUNOS</p>
+            </div>
+
+            <!-- Videos -->
+            <div class="flex max-xl:flex-col items-center justify-center mx-auto max-xl:space-y-12 xl:space-x-12">
+
+                <!-- 1 -->
+                <div class="relative flex items-center justify-center max-xl:w-full xl:w-96 h-[600px] rounded-2xl shadow bg-white">
+                    <svg class="absolute w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+
+                <!-- 2 -->
+                <div class="relative flex items-center justify-center max-xl:w-full xl:w-96 h-[600px] rounded-2xl shadow bg-white">
+                    <svg class="absolute w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+
+                <!-- 3 -->
+                <div class="relative flex items-center justify-center max-xl:w-full xl:w-96 h-[600px] rounded-2xl shadow bg-white">
+                    <svg class="absolute w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="flex justify-center">
+                <a class="text-2xl text-[#092934] font-bold rounded-md bg-[#CEC746] transition-transform ease-in-out hover:-translate-y-1 duration-500 px-12 py-4" href="#planos">COMECE AGORA</a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Planos -->
+    <div class="py-12 xl:py-16" id="planos">
+        <div class="w-[90%] xl:w-[80%] mx-auto space-y-12 xl:space-y-16">
+
+            <!-- Titulo -->
+            <div class="text-[#092934] text-center space-y-4">
+                <p class="text-3xl xl:text-5xl font-bold">ESCOLHA SEU PLANO</p>
+                <p class="xl:text-lg font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque ddue ju nsijde nijosaj vsa eo.</p>
+            </div>
+
+            <!-- Videos -->
+            <div class="flex max-xl:flex-col items-center justify-center max-xl:space-y-12 xl:space-x-12">
+
+                <!-- 1 -->
+                <div class="rounded-2xl shadow-md bg-white">
+                    
+                    <div class="text-white text-center rounded-t-2xl bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-8 space-y-4">
+                        <p class="text-4xl font-semibold tracking-widest border-b-2 pb-4">TRIMESTRAL</p>
+                        <p class="text-sm font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque</p>
+                    </div>
+
+                    <div class="p-8 space-y-8">
+
+                        <div class="flex justify-center font-medium">
+                            <p class="text-2xl mr-2">R$</p>
+                            <p class="text-7xl font-bold">100</p>
+                            <p class="flex items-end text-2xl">/ mês</p>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="text-white rounded-full bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-1.5">
+                                <img src="arquivos/icones/check.png">
+                            </div>
+                            <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="text-white rounded-full bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-1.5">
+                                <img src="arquivos/icones/check.png">
+                            </div>
+                            <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="text-white rounded-full bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-1.5">
+                                <img src="arquivos/icones/check.png">
+                            </div>
+                            <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <a class="text-xl text-white font-semibold rounded-md bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] transition-transform ease-in-out hover:-translate-y-1 duration-500 px-9 py-3" href="">COMECE AGORA</a>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+                <!-- 2 -->
+                <div class="rounded-2xl shadow-md bg-white">
+                    
+                    <div class="text-white text-center rounded-t-2xl bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-8 space-y-4">
+                        <p class="text-4xl font-semibold tracking-widest border-b-2 pb-4">SEMESTRAL</p>
+                        <p class="text-sm font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque</p>
+                    </div>
+
+                    <div class="p-8 space-y-8">
+                        
+                        <div class="flex justify-center font-medium">
+                            <p class="text-2xl mr-2">R$</p>
+                            <p class="text-7xl font-bold">100</p>
+                            <p class="flex items-end text-2xl">/ mês</p>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="text-white rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
+                                <img src="arquivos/icones/check.png">
+                            </div>
+                            <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="text-white rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
+                                <img src="arquivos/icones/check.png">
+                            </div>
+                            <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="text-white rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
+                                <img src="arquivos/icones/check.png">
+                            </div>
+                            <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <a class="text-xl text-white font-semibold rounded-md bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] transition-transform ease-in-out hover:-translate-y-1 duration-500 px-9 py-3" href="">COMECE AGORA</a>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+                <!-- 3 -->
+                <div class="rounded-2xl shadow-md bg-white">
+                    
+                    <div class="text-white text-center rounded-t-2xl bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[60%] p-8 space-y-4">
+                        <p class="text-4xl font-semibold tracking-widest border-b-2 pb-4">ANUAL</p>
+                        <p class="text-sm font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque</p>
+                    </div>
+
+                    <div class="p-8 space-y-8">
+                        
+                        <div class="flex justify-center font-medium">
+                            <p class="text-2xl mr-2">R$</p>
+                            <p class="text-7xl font-bold">100</p>
+                            <p class="flex items-end text-2xl">/ mês</p>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="text-white rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
+                                <img src="arquivos/icones/check.png">
+                            </div>
+                            <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="text-white rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
+                                <img src="arquivos/icones/check.png">
+                            </div>
+                            <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="text-white rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
+                                <img src="arquivos/icones/check.png">
+                            </div>
+                            <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <a class="text-xl text-white font-semibold rounded-md bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[60%] transition-transform ease-in-out hover:-translate-y-1 duration-500 px-9 py-3" href="">COMECE AGORA</a>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Perguntas Frequentes -->
+    <div class="bg-[#EDEDED] py-12 xl:py-16" id="duvidas">
+        <div class="w-[90%] xl:w-[60%] text-[#092934] mx-auto space-y-12 xl:space-y-16">
+
+            <p class="text-3xl xl:text-5xl text-center font-bold mb-8">PERGUNTAS FREQUENTES</p>
+
+            <div class="flex flex-col items-center space-y-6">
+                <button class="w-full rounded-md shadow-md bg-white p-6 space-y-4" @click="open != 1 ? open = 1 : open = null">
+                    <div class="flex items-center justify-between space-x-4">
+                        <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
+                        <img :class="{ 'rotate-180': open == 1 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
+                    </div>
+                    <p x-show="open == 1" x-transition.duration.500ms>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                </button>
+    
+                <button class="w-full rounded-md shadow-md bg-white p-6 space-y-4" @click="open != 2 ? open = 2 : open = null">
+                    <div class="flex items-center justify-between space-x-4">
+                        <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
+                        <img :class="{ 'rotate-180': open == 2 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
+                    </div>
+                    <p x-show="open == 2" x-transition.duration.500ms>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                </button>
+    
+                <button class="w-full rounded-md shadow-md bg-white p-6 space-y-4" @click="open != 3 ? open = 3 : open = null">
+                    <div class="flex items-center justify-between space-x-4">
+                        <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
+                        <img :class="{ 'rotate-180': open == 3 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
+                    </div>
+                    <p x-show="open == 3" x-transition.duration.500ms>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                </button>
+    
+                <button class="w-full rounded-md shadow-md bg-white p-6 space-y-4" @click="open != 4 ? open = 4 : open = null">
+                    <div class="flex items-center justify-between space-x-4">
+                        <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
+                        <img :class="{ 'rotate-180': open == 4 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
+                    </div>
+                    <p x-show="open == 4" x-transition.duration.500ms>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                </button>
+    
+                <button class="w-full rounded-md shadow-md bg-white p-6 space-y-4" @click="open != 5 ? open = 5 : open = null">
+                    <div class="flex items-center justify-between space-x-4">
+                        <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
+                        <img :class="{ 'rotate-180': open == 5 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
+                    </div>
+                    <p x-show="open == 5" x-transition.duration.500ms>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Depoimentos em Texto -->
+    <div class="bg-[#092934] py-12 xl:py-16">
+        <div class="w-[90%] xl:w-[80%] text-white mx-auto space-y-12 xl:space-y-16">
+
+            <div class="flex max-xl:flex-col items-center max-xl:space-y-8 xl:space-x-8">
+
+                <div class="xl:basis-1/2 flex max-xl:flex-col items-center max-xl:text-center max-xl:space-y-4 xl:space-x-8">
+                    <img class="w-40 h-40 rounded-full" src="arquivos/imagens/capa.jpg">
+                    <div class="space-y-4">
+                        <p class="text-2xl font-bold">NETO SERATTI</p>
+                        <p class="text-sm">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
+                        <a class="w-fit flex text-xl text-[#092934] font-bold rounded-md bg-[#CEC746] transition-transform ease-in-out hover:-translate-y-1 duration-500 max-xl:mx-auto px-9 py-3" href="">COMECE AGORA!</a>
+                    </div>
+                </div>
+
+                <div class="xl:basis-1/2 max-xl:border-t-2 max-xl:pt-8 xl:border-l-2 xl:pl-8 space-y-8">
+                    <div class="flex items-end space-x-4">
+                        <img class="w-20 h-20 rounded-full" src="arquivos/imagens/capa.jpg">
+                        <div class="space-y-2">
+                            <p class="font-bold ml-4">Beatriz Gonçalves</p>
+                            <p class="text-xs rounded-xl bg-[#1D1D1D] p-3">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
+                        </div>
+                    </div>
+                    <div class="flex items-end space-x-4">
+                        <div class="space-y-2">
+                            <p class="text-right font-bold mr-4">Beatriz Gonçalves</p>
+                            <p class="text-xs rounded-xl bg-[#1D1D1D] p-3">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
+                        </div>
+                        <img class="w-20 h-20 rounded-full" src="arquivos/imagens/capa.jpg">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Rodapé -->
+    <div class="bg-[#092934]">
+        <div class="rounded-t-[2rem] bg-[#1D1D1D] py-8">
+            <div class="text-xs text-white text-center mx-auto space-y-4">
+                <div class="flex justify-center space-x-4">
+                    <p>POLÍTICAS DE PRIVACIDADE</p>
+                    <div class="border"></div>
+                    <p>TERMOS E CONDIÇÕES</p>
+                </div>
+                <p>SUPORTE POR E-MAIL: suporte@netoseratti.com</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
