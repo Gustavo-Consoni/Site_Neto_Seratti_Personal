@@ -871,16 +871,8 @@ video {
   --tw-bg-opacity: 0.5;
 }
 
-.bg-\[url\(\'\/arquivos\/imagens\/capa\.jpg\'\)\] {
-  background-image: url('/arquivos/imagens/capa.jpg');
-}
-
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-}
-
-.bg-\[url\(\'\/\'\)\] {
-  background-image: url('/');
 }
 
 .from-\[\#00EBAA\] {
@@ -921,8 +913,20 @@ video {
   background-size: cover;
 }
 
-.bg-\[top_left_-10rem\] {
-  background-position: top left -10rem;
+.bg-\[top_left_-8rem\] {
+  background-position: top left -8rem;
+}
+
+.bg-\[top_left_-4rem\] {
+  background-position: top left -4rem;
+}
+
+.bg-\[top_left_-12rem\] {
+  background-position: top left -12rem;
+}
+
+.bg-\[top_left_-14rem\] {
+  background-position: top left -14rem;
 }
 
 .bg-no-repeat {

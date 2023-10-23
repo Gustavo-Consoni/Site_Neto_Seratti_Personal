@@ -18,7 +18,7 @@
 <body x-data="{ sidebar: false, open: null }">
 
     <!-- Home -->
-    <div class="relative h-screen bg-cover bg-[top_left_-10rem] xl:bg-center bg-no-repeat" style="background-image: url('arquivos/imagens/capa.jpg')">
+    <div class="relative h-screen bg-cover bg-[top_left_-14rem] xl:bg-center bg-no-repeat" style="background-image: url('arquivos/imagens/capa.jpg')">
 
         <!-- Navbar -->
         <div class="w-full absolute top-0 z-10 flex items-center justify-between text-white max-xl:p-6 xl:p-12">
@@ -27,7 +27,7 @@
                 <a href="#apresentacao">APRESENTAÇÃO</a>
                 <a href="#depoimentos">DEPOIMENTOS</a>
                 <a href="#planos">PLANOS</a>
-                <a href="#duvidas">DÚVIDAS</a>
+                <a href="#duvidas">DÚVIDAS</a>  
             </div>
             <button class="xl:hidden" @click="sidebar = !sidebar">
                 <svg class="w-9 h-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -48,22 +48,22 @@
                     </button>
                 </div>
                 <div class="flex flex-col text-sm px-6 pb-6 space-y-4">
-                    <div class="flex items-center border-b p-2 space-x-4">
+                    <a class="flex items-center border-b p-2 space-x-4" href="#apresentacao" @click="sidebar = !sidebar">
                         <img class="w-4 h-4" src="arquivos/icones/check.png">
-                        <a href="#apresentacao">APRESENTAÇÃO</a>
-                    </div>
-                    <div class="flex items-center border-b p-2 space-x-4">
+                        <p>APRESENTAÇÃO</p>
+                    </a>
+                    <a class="flex items-center border-b p-2 space-x-4" href="#depoimentos" @click="sidebar = !sidebar">
                         <img class="w-4 h-4" src="arquivos/icones/check.png">
-                        <a href="#depoimentos">DEPOIMENTOS</a>
-                    </div>
-                    <div class="flex items-center border-b p-2 space-x-4">
+                        <p>DEPOIMENTOS</p>
+                    </a>
+                    <a class="flex items-center border-b p-2 space-x-4" href="#planos" @click="sidebar = !sidebar">
                         <img class="w-4 h-4" src="arquivos/icones/check.png">
-                        <a href="#planos">PLANOS</a>
-                    </div>
-                    <div class="flex items-center border-b p-2 space-x-4">
+                        <p>PLANOS</p>
+                    </a>
+                    <a class="flex items-center border-b p-2 space-x-4" href="#duvidas" @click="sidebar = !sidebar">
                         <img class="w-4 h-4" src="arquivos/icones/check.png">
-                        <a href="#duvidas">DÚVIDAS</a>
-                    </div>
+                        <p>DÚVIDAS</p>
+                    </a>
                 </div>
                 <div class="flex items-center justify-center text-white space-x-4">
                     <a class="transition-transform ease-in-out hover:-translate-y-1 duration-500" href="">
@@ -411,7 +411,7 @@
                     <div class="space-y-4">
                         <p class="text-2xl font-bold">NETO SERATTI</p>
                         <p class="text-sm">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
-                        <a class="w-fit flex text-xl text-[#092934] font-bold rounded-md bg-[#CEC746] transition-transform ease-in-out hover:-translate-y-1 duration-500 max-xl:mx-auto px-9 py-3" href="">COMECE AGORA!</a>
+                        <a class="w-fit flex text-xl text-[#092934] font-bold rounded-md bg-[#CEC746] transition-transform ease-in-out hover:-translate-y-1 duration-500 max-xl:mx-auto px-9 py-3" href="#planos">COMECE AGORA!</a>
                     </div>
                 </div>
 
@@ -440,16 +440,14 @@
 
 
     <!-- Rodapé -->
-    <div class="bg-[#092934]">
-        <div class="rounded-t-[2rem] bg-[#1D1D1D] py-8">
-            <div class="text-xs text-white text-center mx-auto space-y-4">
-                <div class="flex justify-center space-x-4">
-                    <p>POLÍTICAS DE PRIVACIDADE</p>
-                    <div class="border"></div>
-                    <p>TERMOS E CONDIÇÕES</p>
-                </div>
-                <p>SUPORTE POR E-MAIL: suporte@netoseratti.com</p>
+    <div class="bg-[#1D1D1D] py-8">
+        <div class="text-xs text-white text-center mx-auto space-y-4">
+            <div class="flex justify-center space-x-4">
+                <p>POLÍTICAS DE PRIVACIDADE</p>
+                <div class="border"></div>
+                <p>TERMOS E CONDIÇÕES</p>
             </div>
+            <p>SUPORTE POR E-MAIL: suporte@netoseratti.com</p>
         </div>
     </div>
 
