@@ -18,7 +18,7 @@
 <body x-data="{ sidebar: false, open: null, scrolled: false }" @scroll.window="scrolled = window.scrollY > 0">
 
     <!-- Home -->
-    <div class="relative h-[80vh] lg:h-screen bg-cover bg-[top_left_-10rem] lg:bg-center bg-no-repeat" style="background-image: url('arquivos/imagens/capa.jpg')">
+    <div class="relative h-[80vh] lg:h-screen bg-cover bg-[top_left_-8rem] lg:bg-center bg-no-repeat" style="background-image: url('arquivos/imagens/capa.jpg')">
 
         <!-- Navbar -->
         <div :class="{ 'bg-black bg-opacity-80': scrolled }" class="w-full fixed top-0 z-10 flex items-center justify-between text-white duration-500 p-5 lg:px-12">
@@ -77,13 +77,13 @@
             </div>
             <p class="text-2xl text-center font-semibold pb-6">NETO SERATTI</p>
         </div>
-        <div :class="{ 'bg-black bg-opacity-50': sidebar }" class="fixed top-0 left-0 z-10 w-full h-full duration-500" x-show="sidebar" @click="sidebar = !sidebar"></div>
+        <div class="fixed top-0 left-0 z-10 w-full h-full bg-black bg-opacity-50" x-show="sidebar" @click="sidebar = !sidebar" x-transition.opacity.duration.500ms></div>
 
         <!-- Texto -->
         <div class="absolute inset-0 flex flex-col items-center lg:items-end justify-end lg:justify-center text-center lg:text-right text-white max-lg:pb-12 lg:pr-12 space-y-4">
             <p class="text-[1.4rem]/[1.75rem] lg:text-6xl lg:text-[#CEC746] font-semibold">SUA MELHOR FORMA <br> NUNCA ESTEVE TÃO PERTO</p>
             <p class="max-lg:hidden text-sm lg:text-lg font-medium">"But I must explain to you how all this mistaken idea of denouncing <br> pleasure and praising pain was born and I will give system.</p>
-            <a class="text-xl lg:text-[#092934] font-bold rounded-md bg-[#092934] lg:bg-[#CEC746] transition-transform ease-in-out hover:-translate-y-1 duration-500 px-9 py-3" href="#planos">COMECE AGORA!</a>
+            <a class="text-xl text-[#092934] font-bold rounded-md bg-[#CEC746] transition-transform ease-in-out hover:-translate-y-1 duration-500 px-9 py-3" href="#planos">COMECE AGORA!</a>
         </div>
 
         <!-- Contato -->
@@ -354,44 +354,44 @@
             <p class="text-3xl lg:text-5xl text-center font-bold mb-8">PERGUNTAS FREQUENTES</p>
 
             <div class="flex flex-col items-center space-y-6">
-                <button class="w-full rounded-md shadow-md bg-white p-6 space-y-4" @click="open != 1 ? open = 1 : open = null">
+                <button :class="{ 'space-y-4': open == 1 }" class="w-full rounded-md shadow-md bg-white p-6" @click="open != 1 ? open = 1 : open = null">
                     <div class="flex items-center justify-between space-x-4">
                         <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
                         <img :class="{ 'rotate-180': open == 1 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
                     </div>
-                    <p x-show="open == 1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                    <p :class="{ 'max-h-96': open == 1 }" class="overflow-hidden max-h-0 duration-500">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
     
-                <button class="w-full rounded-md shadow-md bg-white p-6 space-y-4" @click="open != 2 ? open = 2 : open = null">
+                <button :class="{ 'space-y-4': open == 2     }" class="w-full rounded-md shadow-md bg-white p-6" @click="open != 2 ? open = 2 : open = null">
                     <div class="flex items-center justify-between space-x-4">
                         <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
                         <img :class="{ 'rotate-180': open == 2 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
                     </div>
-                    <p x-show="open == 2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                    <p :class="{ 'max-h-96': open == 2 }" class="overflow-hidden max-h-0 duration-500">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
     
-                <button class="w-full rounded-md shadow-md bg-white p-6 space-y-4" @click="open != 3 ? open = 3 : open = null">
+                <button :class="{ 'space-y-4': open == 3 }" class="w-full rounded-md shadow-md bg-white p-6" @click="open != 3 ? open = 3 : open = null">
                     <div class="flex items-center justify-between space-x-4">
                         <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
                         <img :class="{ 'rotate-180': open == 3 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
                     </div>
-                    <p x-show="open == 3">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                    <p :class="{ 'max-h-96': open == 3 }" class="overflow-hidden max-h-0 duration-500">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
     
-                <button class="w-full rounded-md shadow-md bg-white p-6 space-y-4" @click="open != 4 ? open = 4 : open = null">
+                <button :class="{ 'space-y-4': open == 4 }" class="w-full rounded-md shadow-md bg-white p-6" @click="open != 4 ? open = 4 : open = null">
                     <div class="flex items-center justify-between space-x-4">
                         <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
                         <img :class="{ 'rotate-180': open == 4 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
                     </div>
-                    <p x-show="open == 4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                    <p :class="{ 'max-h-96': open == 4 }" class="overflow-hidden max-h-0 duration-500">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
     
-                <button class="w-full rounded-md shadow-md bg-white p-6 space-y-4" @click="open != 5 ? open = 5 : open = null">
+                <button :class="{ 'space-y-4': open == 5 }" class="w-full rounded-md shadow-md bg-white p-6" @click="open != 5 ? open = 5 : open = null">
                     <div class="flex items-center justify-between space-x-4">
                         <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
                         <img :class="{ 'rotate-180': open == 5 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
                     </div>
-                    <p x-show="open == 5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                    <p :class="{ 'max-h-96': open == 5 }" class="overflow-hidden max-h-0 duration-500">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
             </div>
 
