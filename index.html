@@ -351,48 +351,50 @@
     <div class="bg-[#EDEDED] py-12 lg:py-16" id="duvidas">
         <div class="w-[90%] lg:w-[60%] text-[#092934] mx-auto space-y-12 lg:space-y-16">
 
-            <p class="text-3xl lg:text-5xl text-center font-bold mb-8">PERGUNTAS FREQUENTES</p>
+            <p class="text-3xl lg:text-5xl text-center font-bold">PERGUNTAS FREQUENTES</p>
 
-            <div class="flex flex-col items-center space-y-6">
-                <button :class="{ 'space-y-4': open == 1 }" class="w-full rounded-md shadow-md bg-white p-6" @click="open != 1 ? open = 1 : open = null">
+            <div class="flex flex-col space-y-6">
+
+                <button :class="{ 'space-y-4': open == 1 }" class="w-full text-sm lg:text-base text-left rounded-md shadow-md bg-white p-6" @click="open != 1 ? open = 1 : open = null">
                     <div class="flex items-center justify-between space-x-4">
-                        <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
-                        <img :class="{ 'rotate-180': open == 1 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
+                        <p class="font-semibold">QUANDO O TREINO ESTARÁ PRONTO?</p>
+                        <img :class="{ 'rotate-180': open == 1 }" class="w-6 h-6 duration-700" src="arquivos/icones/arrow.png">
                     </div>
-                    <p :class="{ 'max-h-96': open == 1 }" class="overflow-hidden max-h-0 duration-500">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                    <p :class="{ 'max-h-96': open == 1 }" class="max-h-0 overflow-hidden duration-700">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
     
-                <button :class="{ 'space-y-4': open == 2     }" class="w-full rounded-md shadow-md bg-white p-6" @click="open != 2 ? open = 2 : open = null">
+                <button :class="{ 'space-y-4': open == 2 }" class="w-full text-sm lg:text-base text-left rounded-md shadow-md bg-white p-6" @click="open != 2 ? open = 2 : open = null">
                     <div class="flex items-center justify-between space-x-4">
-                        <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
-                        <img :class="{ 'rotate-180': open == 2 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
+                        <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO?</p>
+                        <img :class="{ 'rotate-180': open == 2 }" class="w-6 h-6 duration-700" src="arquivos/icones/arrow.png">
                     </div>
-                    <p :class="{ 'max-h-96': open == 2 }" class="overflow-hidden max-h-0 duration-500">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                    <p :class="{ 'max-h-96': open == 2 }" class="max-h-0 overflow-hidden duration-700">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
     
-                <button :class="{ 'space-y-4': open == 3 }" class="w-full rounded-md shadow-md bg-white p-6" @click="open != 3 ? open = 3 : open = null">
+                <button :class="{ 'space-y-4': open == 3 }" class="w-full text-sm lg:text-base text-left rounded-md shadow-md bg-white p-6" @click="open != 3 ? open = 3 : open = null">
                     <div class="flex items-center justify-between space-x-4">
-                        <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
-                        <img :class="{ 'rotate-180': open == 3 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
+                        <p class="font-semibold">POR ONDE POSSO TIRAR AS MINHAS DÚVIDAS?</p>
+                        <img :class="{ 'rotate-180': open == 3 }" class="w-6 h-6 duration-700" src="arquivos/icones/arrow.png">
                     </div>
-                    <p :class="{ 'max-h-96': open == 3 }" class="overflow-hidden max-h-0 duration-500">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                    <p :class="{ 'max-h-96': open == 3 }" class="max-h-0 overflow-hidden duration-700">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
     
-                <button :class="{ 'space-y-4': open == 4 }" class="w-full rounded-md shadow-md bg-white p-6" @click="open != 4 ? open = 4 : open = null">
+                <button :class="{ 'space-y-4': open == 4 }" class="w-full text-sm lg:text-base text-left rounded-md shadow-md bg-white p-6" @click="open != 4 ? open = 4 : open = null">
                     <div class="flex items-center justify-between space-x-4">
-                        <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
-                        <img :class="{ 'rotate-180': open == 4 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
+                        <p class="font-semibold">TERÁ DIETA JUNTO COM A PLANILHA DE TREINO?</p>
+                        <img :class="{ 'rotate-180': open == 4 }" class="w-6 h-6 duration-700" src="arquivos/icones/arrow.png">
                     </div>
-                    <p :class="{ 'max-h-96': open == 4 }" class="overflow-hidden max-h-0 duration-500">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                    <p :class="{ 'max-h-96': open == 4 }" class="max-h-0 overflow-hidden duration-700">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
     
-                <button :class="{ 'space-y-4': open == 5 }" class="w-full rounded-md shadow-md bg-white p-6" @click="open != 5 ? open = 5 : open = null">
+                <button :class="{ 'space-y-4': open == 5 }" class="w-full text-sm lg:text-base text-left rounded-md shadow-md bg-white p-6" @click="open != 5 ? open = 5 : open = null">
                     <div class="flex items-center justify-between space-x-4">
-                        <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO PARA MEU DESENVOLVIMENTO CORPORAL?</p>
-                        <img :class="{ 'rotate-180': open == 5 }" class="w-6 h-6 duration-500" src="arquivos/icones/arrow.png">
+                        <p class="font-semibold">POR QUE DEVO CONFIAR NO SEU TRABALHO?</p>
+                        <img :class="{ 'rotate-180': open == 5 }" class="w-6 h-6 duration-700" src="arquivos/icones/arrow.png">
                     </div>
-                    <p :class="{ 'max-h-96': open == 5 }" class="overflow-hidden max-h-0 duration-500">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
+                    <p :class="{ 'max-h-96': open == 5 }" class="max-h-0 overflow-hidden duration-700">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
+
             </div>
 
         </div>
@@ -404,11 +406,12 @@
     <div class="bg-[#092934] py-12 lg:py-32">
         <div class="w-[90%] xl:w-[70%] text-white mx-auto space-y-12 lg:space-y-16">
 
-            <div class="flex max-lg:flex-col items-center max-lg:space-y-8 lg:space-x-8">
+            <div class="flex max-lg:flex-col items-center">
 
+                <!-- Motivação do Neto -->
                 <div class="lg:w-1/2 flex max-lg:flex-col items-center max-lg:text-center max-lg:space-y-4 lg:space-x-8">
                     <img class="w-48 h-48 rounded-full" src="arquivos/imagens/capa.jpg">
-                    <div class="space-y-2">
+                    <div class="space-y-4">
                         <p class="text-4xl font-bold">NETO SERATTI</p>
                         <p class="text-sm">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
                         <div class="pt-2">
@@ -417,20 +420,23 @@
                     </div>
                 </div>
 
-                <div class="lg:w-1/2 max-lg:border-t-2 max-lg:pt-8 lg:border-l-2 lg:pl-8 space-y-8">
+                <div class="max-lg:w-full border lg:h-72 lg:mx-12 max-lg:my-12"></div>
+
+                <!-- Depoimentos -->
+                <div class="lg:w-1/2 space-y-8">
                     <div class="flex items-end space-x-4">
-                        <img class="w-20 h-20 rounded-full" src="arquivos/imagens/capa.jpg">
-                        <div class="space-y-2">
+                        <img class="w-24 h-24 rounded-full" src="arquivos/imagens/capa.jpg">
+                        <div>
                             <p class="font-medium ml-3">Beatriz Gonçalves</p>
-                            <p class="text-sm rounded-xl bg-[#1D1D1D] p-3">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
+                            <p class="text-xs lg:text-sm rounded-t-xl rounded-br-xl bg-[#1D1D1D] p-3">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
                         </div>
                     </div>
                     <div class="flex items-end space-x-4">
-                        <div class="space-y-2">
-                            <p class="text-right font-medium mr-3">Beatriz Gonçalves</p>
-                            <p class="text-sm rounded-xl bg-[#1D1D1D] p-3">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
+                        <div>
+                            <p class="text-right font-medium mr-6">Beatriz Gonçalves</p>
+                            <p class="text-xs lg:text-sm rounded-t-xl rounded-bl-xl bg-[#1D1D1D] p-3">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
                         </div>
-                        <img class="w-20 h-20 rounded-full" src="arquivos/imagens/capa.jpg">
+                        <img class="w-24 h-24 rounded-full" src="arquivos/imagens/capa.jpg">
                     </div>
                 </div>
 
