@@ -18,7 +18,7 @@
 <body x-data="{ sidebar: false, open: null, scrolled: false }" @scroll.window="scrolled = window.scrollY > 0">
 
     <!-- Home -->
-    <div class="relative h-[80vh] lg:h-screen bg-cover bg-[top_left_-8rem] lg:bg-center bg-no-repeat" style="background-image: url('arquivos/imagens/capa.jpg')">
+    <div class="relative h-[90vh] lg:h-screen bg-[url('/arquivos/imagens/capa_mobile.jpg')] lg:bg-[url('/arquivos/imagens/capa_desktop.jpg')] bg-cover bg-center bg-no-repeat">
 
         <!-- Navbar -->
         <div :class="{ 'bg-black bg-opacity-80': scrolled }" class="w-full fixed top-0 z-10 flex items-center justify-between text-white duration-500 p-5 lg:px-12">
@@ -132,7 +132,7 @@
 
                 <!-- Video -->
                 <div class="max-lg:w-full lg:basis-1/2">
-                    <div class="relative flex items-center justify-center w-full h-48 lg:h-96 rounded-2xl shadow-md bg-[#092934] lg:mr-auto">
+                    <div class="relative flex items-center justify-center w-full h-48 lg:h-96 rounded-2xl shadow-md border bg-[#092934] lg:mr-auto">
                         <svg class="absolute text-white w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                             <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
                         </svg>
@@ -160,21 +160,21 @@
             <div class="flex max-lg:flex-col items-center justify-center mx-auto max-lg:space-y-12 lg:space-x-12">
 
                 <!-- 1 -->
-                <div class="relative flex items-center justify-center w-full lg:w-96 h-[600px] rounded-2xl shadow bg-white">
+                <div class="relative flex items-center justify-center w-full lg:max-w-sm h-[600px] rounded-2xl shadow-md border bg-white">
                     <svg class="absolute w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
                     </svg>
                 </div>
 
                 <!-- 2 -->
-                <div class="relative flex items-center justify-center w-full lg:w-96 h-[600px] rounded-2xl shadow bg-white">
+                <div class="relative flex items-center justify-center w-full lg:max-w-sm h-[600px] rounded-2xl shadow-md border bg-white">
                     <svg class="absolute w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
                     </svg>
                 </div>
 
                 <!-- 3 -->
-                <div class="relative flex items-center justify-center w-full lg:w-96 h-[600px] rounded-2xl shadow bg-white">
+                <div class="relative flex items-center justify-center w-full lg:max-w-sm h-[600px] rounded-2xl shadow-md border bg-white">
                     <svg class="absolute w-20 h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
                     </svg>
@@ -206,18 +206,18 @@
             <div class="flex max-lg:flex-col items-center justify-center max-lg:space-y-12 lg:space-x-12">
 
                 <!-- 1 -->
-                <div class="rounded-2xl shadow-md bg-white">
+                <div class="max-w-sm rounded-2xl shadow-md border bg-white">
                     
                     <div class="text-white text-center rounded-t-2xl bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-8 space-y-4">
                         <p class="text-4xl font-semibold tracking-widest border-b-2 pb-4">TRIMESTRAL</p>
                         <p class="text-sm font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque</p>
                     </div>
 
-                    <div class="p-8 space-y-8">
+                    <div class="p-8 space-y-6">
 
                         <div class="flex justify-center font-medium">
                             <p class="text-2xl mr-2">R$</p>
-                            <p class="text-7xl font-bold">100</p>
+                            <p class="text-7xl font-bold">160</p>
                             <p class="flex items-end text-2xl">/ mês</p>
                         </div>
 
@@ -251,18 +251,18 @@
                 </div>
 
                 <!-- 2 -->
-                <div class="rounded-2xl shadow-md bg-white">
+                <div class="max-w-sm rounded-2xl shadow-md border bg-white">
                     
                     <div class="text-white text-center rounded-t-2xl bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-8 space-y-4">
                         <p class="text-4xl font-semibold tracking-widest border-b-2 pb-4">SEMESTRAL</p>
                         <p class="text-sm font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque</p>
                     </div>
 
-                    <div class="p-8 space-y-8">
+                    <div class="p-8 space-y-6">
                         
                         <div class="flex justify-center font-medium">
                             <p class="text-2xl mr-2">R$</p>
-                            <p class="text-7xl font-bold">100</p>
+                            <p class="text-7xl font-bold">140</p>
                             <p class="flex items-end text-2xl">/ mês</p>
                         </div>
 
@@ -296,18 +296,18 @@
                 </div>
 
                 <!-- 3 -->
-                <div class="rounded-2xl shadow-md bg-white">
+                <div class="max-w-sm rounded-2xl shadow-md border bg-white">
                     
                     <div class="text-white text-center rounded-t-2xl bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[60%] p-8 space-y-4">
                         <p class="text-4xl font-semibold tracking-widest border-b-2 pb-4">ANUAL</p>
                         <p class="text-sm font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque</p>
                     </div>
 
-                    <div class="p-8 space-y-8">
+                    <div class="p-8 space-y-6">
                         
                         <div class="flex justify-center font-medium">
                             <p class="text-2xl mr-2">R$</p>
-                            <p class="text-7xl font-bold">100</p>
+                            <p class="text-7xl font-bold">120</p>
                             <p class="flex items-end text-2xl">/ mês</p>
                         </div>
 
@@ -355,7 +355,7 @@
 
             <div class="flex flex-col space-y-6">
 
-                <button :class="{ 'space-y-4': open == 1 }" class="w-full text-sm lg:text-base text-left rounded-md shadow-md bg-white p-6" @click="open != 1 ? open = 1 : open = null">
+                <button :class="{ 'space-y-4': open == 1 }" class="w-full text-sm lg:text-base text-left rounded-2xl shadow-md border bg-white p-6" @click="open != 1 ? open = 1 : open = null">
                     <div class="flex items-center justify-between space-x-4">
                         <p class="font-semibold">QUANDO O TREINO ESTARÁ PRONTO?</p>
                         <img :class="{ 'rotate-180': open == 1 }" class="w-6 h-6 duration-700" src="arquivos/icones/arrow.png">
@@ -363,7 +363,7 @@
                     <p :class="{ 'max-h-96': open == 1 }" class="max-h-0 overflow-hidden duration-700">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
     
-                <button :class="{ 'space-y-4': open == 2 }" class="w-full text-sm lg:text-base text-left rounded-md shadow-md bg-white p-6" @click="open != 2 ? open = 2 : open = null">
+                <button :class="{ 'space-y-4': open == 2 }" class="w-full text-sm lg:text-base text-left rounded-2xl shadow-md border bg-white p-6" @click="open != 2 ? open = 2 : open = null">
                     <div class="flex items-center justify-between space-x-4">
                         <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO?</p>
                         <img :class="{ 'rotate-180': open == 2 }" class="w-6 h-6 duration-700" src="arquivos/icones/arrow.png">
@@ -371,7 +371,7 @@
                     <p :class="{ 'max-h-96': open == 2 }" class="max-h-0 overflow-hidden duration-700">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
     
-                <button :class="{ 'space-y-4': open == 3 }" class="w-full text-sm lg:text-base text-left rounded-md shadow-md bg-white p-6" @click="open != 3 ? open = 3 : open = null">
+                <button :class="{ 'space-y-4': open == 3 }" class="w-full text-sm lg:text-base text-left rounded-2xl shadow-md border bg-white p-6" @click="open != 3 ? open = 3 : open = null">
                     <div class="flex items-center justify-between space-x-4">
                         <p class="font-semibold">POR ONDE POSSO TIRAR AS MINHAS DÚVIDAS?</p>
                         <img :class="{ 'rotate-180': open == 3 }" class="w-6 h-6 duration-700" src="arquivos/icones/arrow.png">
@@ -379,7 +379,7 @@
                     <p :class="{ 'max-h-96': open == 3 }" class="max-h-0 overflow-hidden duration-700">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
     
-                <button :class="{ 'space-y-4': open == 4 }" class="w-full text-sm lg:text-base text-left rounded-md shadow-md bg-white p-6" @click="open != 4 ? open = 4 : open = null">
+                <button :class="{ 'space-y-4': open == 4 }" class="w-full text-sm lg:text-base text-left rounded-2xl shadow-md border bg-white p-6" @click="open != 4 ? open = 4 : open = null">
                     <div class="flex items-center justify-between space-x-4">
                         <p class="font-semibold">TERÁ DIETA JUNTO COM A PLANILHA DE TREINO?</p>
                         <img :class="{ 'rotate-180': open == 4 }" class="w-6 h-6 duration-700" src="arquivos/icones/arrow.png">
@@ -387,7 +387,7 @@
                     <p :class="{ 'max-h-96': open == 4 }" class="max-h-0 overflow-hidden duration-700">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</p>
                 </button>
     
-                <button :class="{ 'space-y-4': open == 5 }" class="w-full text-sm lg:text-base text-left rounded-md shadow-md bg-white p-6" @click="open != 5 ? open = 5 : open = null">
+                <button :class="{ 'space-y-4': open == 5 }" class="w-full text-sm lg:text-base text-left rounded-2xl shadow-md border bg-white p-6" @click="open != 5 ? open = 5 : open = null">
                     <div class="flex items-center justify-between space-x-4">
                         <p class="font-semibold">POR QUE DEVO CONFIAR NO SEU TRABALHO?</p>
                         <img :class="{ 'rotate-180': open == 5 }" class="w-6 h-6 duration-700" src="arquivos/icones/arrow.png">
@@ -410,7 +410,7 @@
 
                 <!-- Motivação do Neto -->
                 <div class="lg:w-1/2 flex max-lg:flex-col items-center max-lg:text-center max-lg:space-y-4 lg:space-x-8">
-                    <img class="w-48 h-48 rounded-full" src="arquivos/imagens/capa.jpg">
+                    <img class="rounded-full" src="arquivos/imagens/perfil.png">
                     <div class="space-y-4">
                         <p class="text-4xl font-bold">NETO SERATTI</p>
                         <p class="text-sm">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
@@ -425,18 +425,18 @@
                 <!-- Depoimentos -->
                 <div class="lg:w-1/2 space-y-8">
                     <div class="flex items-end space-x-4">
-                        <img class="w-24 h-24 rounded-full" src="arquivos/imagens/capa.jpg">
+                        <img class="w-20 h-20 rounded-full" src="arquivos/imagens/perfil.png">
                         <div>
                             <p class="font-medium ml-3">Beatriz Gonçalves</p>
-                            <p class="text-xs lg:text-sm rounded-t-xl rounded-br-xl bg-[#1D1D1D] p-3">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
+                            <p class="text-xs lg:text-sm rounded-t-xl rounded-br-xl bg-[#1D1D1D] p-3">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina e perseverança!</p>
                         </div>
                     </div>
                     <div class="flex items-end space-x-4">
                         <div>
                             <p class="text-right font-medium mr-6">Beatriz Gonçalves</p>
-                            <p class="text-xs lg:text-sm rounded-t-xl rounded-bl-xl bg-[#1D1D1D] p-3">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
+                            <p class="text-xs lg:text-sm rounded-t-xl rounded-bl-xl bg-[#1D1D1D] p-3">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina e perseverança!</p>
                         </div>
-                        <img class="w-24 h-24 rounded-full" src="arquivos/imagens/capa.jpg">
+                        <img class="w-20 h-20 rounded-full" src="arquivos/imagens/perfil.png">
                     </div>
                 </div>
 
@@ -449,10 +449,10 @@
 
     <!-- Rodapé -->
     <div class="bg-[#1D1D1D] py-8">
-        <div class="text-xs text-white text-center mx-auto space-y-4">
-            <div class="flex justify-center space-x-4">
+        <div class="text-xs text-white text-center mx-auto lg:mr-8 space-y-4">
+            <div class="flex justify-center">
                 <p>POLÍTICAS DE PRIVACIDADE</p>
-                <div class="border"></div>
+                <div class="border mx-4 lg:mx-12"></div>
                 <p>TERMOS E CONDIÇÕES</p>
             </div>
             <p>SUPORTE POR E-MAIL: suporte@netoseratti.com</p>
