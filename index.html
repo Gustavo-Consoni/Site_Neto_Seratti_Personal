@@ -43,7 +43,7 @@
         <!-- Mobile -->
         <div :class="{ '-translate-x-64': sidebar }" class="fixed top-0 -right-64 z-20 flex flex-col justify-between w-64 h-full text-white bg-[#092934] duration-500">
             <div>
-                <div class="flex items-center justify-between p-6">
+                <div class="flex items-center justify-between p-5">
                     <p class="text-2xl font-semibold">MENU</p>
                     <button @click="sidebar = !sidebar">
                         <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -51,21 +51,21 @@
                         </svg>
                     </button>
                 </div>
-                <div class="flex flex-col text-sm px-6 pb-6 space-y-4">
+                <div class="flex flex-col text-sm px-5 pb-10 space-y-4">
                     <a class="flex items-center border-b p-2 space-x-4" href="#apresentacao" @click="sidebar = !sidebar">
-                        <img class="w-4 h-4" src="arquivos/icones/check.png">
+                        <img class="w-6 h-6" src="arquivos/icones/apresentacao.png">
                         <p>APRESENTAÇÃO</p>
                     </a>
                     <a class="flex items-center border-b p-2 space-x-4" href="#depoimentos" @click="sidebar = !sidebar">
-                        <img class="w-4 h-4" src="arquivos/icones/check.png">
+                        <img class="w-6 h-6" src="arquivos/icones/depoimentos.png">
                         <p>DEPOIMENTOS</p>
                     </a>
                     <a class="flex items-center border-b p-2 space-x-4" href="#planos" @click="sidebar = !sidebar">
-                        <img class="w-4 h-4" src="arquivos/icones/check.png">
+                        <img class="w-6 h-6" src="arquivos/icones/planos.png">
                         <p>PLANOS</p>
                     </a>
                     <a class="flex items-center border-b p-2 space-x-4" href="#duvidas" @click="sidebar = !sidebar">
-                        <img class="w-4 h-4" src="arquivos/icones/check.png">
+                        <img class="w-6 h-6" src="arquivos/icones/duvidas.png">
                         <p>DÚVIDAS</p>
                     </a>
                 </div>
@@ -453,7 +453,7 @@
 
     <!-- Rodapé -->
     <div class="bg-[#1D1D1D] py-8">
-        <div class="text-xs text-white text-center mx-auto lg:mr-8 space-y-4">
+        <div class="text-[0.7rem]/[1rem] text-white text-center mx-auto lg:mr-8 space-y-4">
             <div class="flex justify-center">
                 <a href="">POLÍTICAS DE PRIVACIDADE</a>
                 <div class="border mx-4 lg:mx-12"></div>
