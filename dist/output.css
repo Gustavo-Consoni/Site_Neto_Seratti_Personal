@@ -644,6 +644,10 @@ video {
   height: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
@@ -885,10 +889,6 @@ video {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
 
-.bg-mobile {
-  background-image: url('https://gustavo-consoni.github.io/Site_Neto_Seratti_Personal/arquivos/imagens/capa_mobile.jpg');
-}
-
 .from-\[\#00EBAA\] {
   --tw-gradient-from: #00EBAA var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 235 170 / 0) var(--tw-gradient-to-position);
@@ -923,16 +923,9 @@ video {
   --tw-gradient-to-position: 70%;
 }
 
-.bg-cover {
-  background-size: cover;
-}
-
-.bg-center {
-  background-position: center;
-}
-
-.bg-no-repeat {
-  background-repeat: no-repeat;
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .p-1 {
@@ -1203,10 +1196,6 @@ video {
     height: 24rem;
   }
 
-  .lg\:h-screen {
-    height: 100vh;
-  }
-
   .lg\:w-1\/2 {
     width: 50%;
   }
@@ -1257,10 +1246,6 @@ video {
     --tw-space-y-reverse: 0;
     margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(4rem * var(--tw-space-y-reverse));
-  }
-
-  .lg\:bg-desktop {
-    background-image: url('https://gustavo-consoni.github.io/Site_Neto_Seratti_Personal/arquivos/imagens/capa_desktop.jpg');
   }
 
   .lg\:px-12 {
