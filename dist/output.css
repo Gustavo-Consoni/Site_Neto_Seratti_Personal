@@ -893,6 +893,10 @@ video {
   background-image: url('/arquivos/imagens/capa_mobile.jpg');
 }
 
+.bg-\[url\(\'\/arquivos\/imagens\/capa_desktop\.jpg\'\)\] {
+  background-image: url('/arquivos/imagens/capa_desktop.jpg');
+}
+
 .from-\[\#00EBAA\] {
   --tw-gradient-from: #00EBAA var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 235 170 / 0) var(--tw-gradient-to-position);
