@@ -644,6 +644,10 @@ video {
   height: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
@@ -885,7 +889,7 @@ video {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
 
-.bg-mobile {
+.bg-\[url\(\'\/arquivos\/imagens\/capa_mobile\.jpg\'\)\] {
   background-image: url('/arquivos/imagens/capa_mobile.jpg');
 }
 
@@ -1259,7 +1263,11 @@ video {
     margin-bottom: calc(4rem * var(--tw-space-y-reverse));
   }
 
-  .lg\:bg-desktop {
+  .lg\:bg-\[url\(\'\/arquivos\/imagens\/capa_mobile\.jpg\'\)\] {
+    background-image: url('/arquivos/imagens/capa_mobile.jpg');
+  }
+
+  .lg\:bg-\[url\(\'\/arquivos\/imagens\/capa_desktop\.jpg\'\)\] {
     background-image: url('/arquivos/imagens/capa_desktop.jpg');
   }
 
