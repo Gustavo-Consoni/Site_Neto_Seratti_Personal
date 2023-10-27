@@ -15,24 +15,24 @@
         }
     </style>
 </head>
-<body x-data="{ sidebar: false, open: null, scrolled: false }" @scroll.window="scrolled = window.scrollY > 0">
+<body x-data="{ sidebar: false, open: null, scrolled: false, mobile: window.innerWidth <= 1024 }" @scroll.window="scrolled = window.scrollY > 0">
 
     <!-- Home -->
     <div class="relative">
 
         <!-- Capa -->
-        <img class="w-full h-[94vh] lg:h-screen object-cover" :src="window.innerWidth <= 1024 ? 'arquivos/imagens/capa_mobile.webp' : 'arquivos/imagens/capa_desktop.webp'">
+        <img class="w-full h-[94vh] lg:h-screen object-cover" :src="mobile ? 'arquivos/imagens/capa_mobile.webp' : 'arquivos/imagens/capa_desktop.webp'">
 
         <!-- Navbar -->
         <div :class="{ 'bg-black bg-opacity-80': scrolled }" class="w-full fixed top-0 z-10 flex items-center justify-between text-white duration-500 p-5 lg:px-12">
             <p class="text-2xl lg:text-4xl font-semibold">NETO SERATTI</p>
-            <div class="max-lg:hidden flex items-center font-medium space-x-16">
+            <div :class="{ 'hidden': mobile }" class="flex items-center font-medium space-x-16">
                 <a href="#apresentacao">APRESENTAÇÃO</a>
                 <a href="#depoimentos">DEPOIMENTOS</a>
                 <a href="#planos">PLANOS</a>
                 <a href="#duvidas">DÚVIDAS</a>
             </div>
-            <button class="lg:hidden" @click="sidebar = !sidebar">
+            <button :class="{ 'hidden': !mobile }" @click="sidebar = !sidebar">
                 <svg class="w-9 h-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
@@ -40,57 +40,54 @@
         </div>
 
         <!-- Mobile -->
-        <div :class="{ '-translate-x-64': sidebar }" class="fixed top-0 -right-64 z-20 flex flex-col justify-between w-64 h-full text-white bg-[#092934] duration-500">
-            <div>
-                <div class="flex items-center justify-between p-5">
-                    <p class="text-2xl font-semibold">MENU</p>
-                    <button @click="sidebar = !sidebar">
-                        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="flex flex-col text-sm px-5 pb-10 space-y-4">
-                    <a class="flex items-center border-b p-2 space-x-4" href="#apresentacao" @click="sidebar = !sidebar">
-                        <img class="w-6 h-6" src="arquivos/icones/apresentacao.png">
-                        <p>APRESENTAÇÃO</p>
-                    </a>
-                    <a class="flex items-center border-b p-2 space-x-4" href="#depoimentos" @click="sidebar = !sidebar">
-                        <img class="w-6 h-6" src="arquivos/icones/depoimentos.png">
-                        <p>DEPOIMENTOS</p>
-                    </a>
-                    <a class="flex items-center border-b p-2 space-x-4" href="#planos" @click="sidebar = !sidebar">
-                        <img class="w-6 h-6" src="arquivos/icones/planos.png">
-                        <p>PLANOS</p>
-                    </a>
-                    <a class="flex items-center border-b p-2 space-x-4" href="#duvidas" @click="sidebar = !sidebar">
-                        <img class="w-6 h-6" src="arquivos/icones/duvidas.png">
-                        <p>DÚVIDAS</p>
-                    </a>
-                </div>
-                <div class="flex items-center justify-center text-white space-x-4">
-                    <a class="transition-transform ease-in-out hover:-translate-y-1 duration-500" href="">
-                        <img class="w-7 h-7" src="arquivos/icones/whatsapp.png">
-                    </a>
-                    <div class="border h-7"></div>
-                    <a class="transition-transform ease-in-out hover:-translate-y-1 duration-500" href="https://www.instagram.com/netoseratti/">
-                        <img class="w-7 h-7" src="arquivos/icones/instagram.png">
-                    </a>
-                </div>
+        <div :class="{ 'hidden': !mobile, '-translate-x-64': sidebar }" class="fixed top-0 -right-64 z-20 w-64 h-full text-white bg-[#092934] duration-500 space-y-8">
+            <div class="flex items-center justify-between px-5 pt-5">
+                <p class="text-2xl font-semibold">MENU</p>
+                <button @click="sidebar = !sidebar">
+                    <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
-            <p class="text-2xl text-center font-semibold pb-6">NETO SERATTI</p>
+            <div class="flex flex-col text-sm px-5 space-y-4">
+                <a class="flex items-center border-b p-2 space-x-4" href="#apresentacao" @click="sidebar = !sidebar">
+                    <img class="w-6 h-6" src="arquivos/icones/apresentacao.png">
+                    <p>APRESENTAÇÃO</p>
+                </a>
+                <a class="flex items-center border-b p-2 space-x-4" href="#depoimentos" @click="sidebar = !sidebar">
+                    <img class="w-6 h-6" src="arquivos/icones/depoimentos.png">
+                    <p>DEPOIMENTOS</p>
+                </a>
+                <a class="flex items-center border-b p-2 space-x-4" href="#planos" @click="sidebar = !sidebar">
+                    <img class="w-6 h-6" src="arquivos/icones/planos.png">
+                    <p>PLANOS</p>
+                </a>
+                <a class="flex items-center border-b p-2 space-x-4" href="#duvidas" @click="sidebar = !sidebar">
+                    <img class="w-6 h-6" src="arquivos/icones/duvidas.png">
+                    <p>DÚVIDAS</p>
+                </a>
+            </div>
+            <div class="flex items-center justify-center text-white space-x-4">
+                <a class="transition-transform ease-in-out hover:-translate-y-1 duration-500" href="">
+                    <img class="w-7 h-7" src="arquivos/icones/whatsapp.png">
+                </a>
+                <div class="border h-7"></div>
+                <a class="transition-transform ease-in-out hover:-translate-y-1 duration-500" href="https://www.instagram.com/netoseratti/">
+                    <img class="w-7 h-7" src="arquivos/icones/instagram.png">
+                </a>
+            </div>
         </div>
-        <div class="fixed top-0 left-0 z-10 w-full h-full bg-black bg-opacity-50" x-show="sidebar" @click="sidebar = !sidebar" x-transition.opacity.duration.500ms></div>
+        <div :class="{ 'hidden': !mobile }" class="fixed top-0 left-0 z-10 w-full h-full bg-black bg-opacity-50" x-show="sidebar" @click="sidebar = !sidebar" x-transition.opacity.duration.500ms></div>
 
         <!-- Texto -->
         <div class="absolute inset-0 flex flex-col items-center lg:items-end justify-end lg:justify-center text-center lg:text-right text-white max-lg:pb-12 lg:pr-12 space-y-4">
             <p class="text-[1.4rem]/[1.75rem] lg:text-6xl lg:text-[#CEC746] font-semibold">SUA MELHOR FORMA <br> NUNCA ESTEVE TÃO PERTO</p>
-            <p class="max-lg:hidden text-sm lg:text-lg font-medium">"But I must explain to you how all this mistaken idea of denouncing <br> pleasure and praising pain was born and I will give system.</p>
+            <p :class="{ 'hidden': mobile }" class="text-sm lg:text-lg font-medium">"But I must explain to you how all this mistaken idea of denouncing <br> pleasure and praising pain was born and I will give system.</p>
             <a class="text-xl text-[#092934] font-bold rounded-md bg-[#CEC746] transition-transform ease-in-out hover:-translate-y-1 duration-500 px-9 py-3" href="#planos">COMECE AGORA!</a>
         </div>
 
         <!-- Contato -->
-        <div class="max-lg:hidden absolute bottom-12 right-12 z-10 flex items-center text-white space-x-8">
+        <div :class="{ 'hidden': mobile }" class="absolute bottom-12 right-12 z-10 flex items-center text-white space-x-8">
             <a class="transition-transform ease-in-out hover:-translate-y-1 duration-500" href="">
                 <img class="w-10 h-10" src="arquivos/icones/whatsapp.png">
             </a>
@@ -222,22 +219,22 @@
                         </div>
 
                         <div class="flex items-center space-x-2">
-                            <div class="text-white rounded-full bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                <img src="arquivos/icones/check.png">
+                            <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-1.5">
+                                <img class="w-3 h-3" src="arquivos/icones/check.png">
                             </div>
                             <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
                         </div>
 
                         <div class="flex items-center space-x-2">
-                            <div class="text-white rounded-full bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                <img src="arquivos/icones/check.png">
+                            <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-1.5">
+                                <img class="w-3 h-3" src="arquivos/icones/check.png">
                             </div>
                             <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
                         </div>
 
                         <div class="flex items-center space-x-2">
-                            <div class="text-white rounded-full bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                <img src="arquivos/icones/check.png">
+                            <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-1.5">
+                                <img class="w-3 h-3" src="arquivos/icones/check.png">
                             </div>
                             <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
                         </div>
@@ -267,22 +264,22 @@
                         </div>
 
                         <div class="flex items-center space-x-2">
-                            <div class="text-white rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                <img src="arquivos/icones/check.png">
+                            <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
+                                <img class="w-3 h-3" src="arquivos/icones/check.png">
                             </div>
                             <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
                         </div>
 
                         <div class="flex items-center space-x-2">
-                            <div class="text-white rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                <img src="arquivos/icones/check.png">
+                            <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
+                                <img class="w-3 h-3" src="arquivos/icones/check.png">
                             </div>
                             <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
                         </div>
 
                         <div class="flex items-center space-x-2">
-                            <div class="text-white rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                <img src="arquivos/icones/check.png">
+                            <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
+                                <img class="w-3 h-3" src="arquivos/icones/check.png">
                             </div>
                             <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
                         </div>
@@ -312,22 +309,22 @@
                         </div>
 
                         <div class="flex items-center space-x-2">
-                            <div class="text-white rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
-                                <img src="arquivos/icones/check.png">
+                            <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
+                                <img class="w-3 h-3" src="arquivos/icones/check.png">
                             </div>
                             <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
                         </div>
 
                         <div class="flex items-center space-x-2">
-                            <div class="text-white rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
-                                <img src="arquivos/icones/check.png">
+                            <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
+                                <img class="w-3 h-3" src="arquivos/icones/check.png">
                             </div>
                             <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
                         </div>
 
                         <div class="flex items-center space-x-2">
-                            <div class="text-white rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
-                                <img src="arquivos/icones/check.png">
+                            <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
+                                <img class="w-3 h-3" src="arquivos/icones/check.png">
                             </div>
                             <p class="text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proim sed neque.</p>
                         </div>
