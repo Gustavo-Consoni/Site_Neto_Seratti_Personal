@@ -21,8 +21,7 @@
     <div class="relative">
 
         <!-- Capa -->
-        <img class="lg:hidden w-full h-[94vh] object-cover" src="arquivos/imagens/capa_mobile.jpg">
-        <img class="max-lg:hidden w-full h-screen object-cover" src="arquivos/imagens/capa_desktop.jpg">
+        <img class="w-full h-[94vh] lg:h-screen object-cover" :src="window.innerWidth <= 1024 ? 'arquivos/imagens/capa_mobile.webp' : 'arquivos/imagens/capa_desktop.webp'">
 
         <!-- Navbar -->
         <div :class="{ 'bg-black bg-opacity-80': scrolled }" class="w-full fixed top-0 z-10 flex items-center justify-between text-white duration-500 p-5 lg:px-12">
@@ -409,7 +408,7 @@
 
                 <!-- Motivação do Neto -->
                 <div class="lg:w-1/2 flex max-lg:flex-col items-center max-lg:text-center max-lg:space-y-4 lg:space-x-8">
-                    <img class="w-40 h-40 rounded-full" src="arquivos/imagens/perfil.png">
+                    <img class="w-40 h-40 rounded-full" src="arquivos/imagens/perfil.webp">
                     <div class="space-y-4">
                         <p class="text-4xl font-bold">NETO SERATTI</p>
                         <p class="text-sm">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina, perseverança, e o mais importante NUNCA DESISTIR!</p>
@@ -424,7 +423,7 @@
                 <!-- Depoimentos -->
                 <div class="lg:w-1/2 space-y-8">
                     <div class="flex items-end space-x-4">
-                        <img class="w-20 h-20 rounded-full" src="arquivos/imagens/perfil.png">
+                        <img class="w-20 h-20 rounded-full" src="arquivos/imagens/perfil.webp">
                         <div>
                             <p class="font-medium ml-3">Beatriz Gonçalves</p>
                             <p class="text-xs lg:text-sm rounded-t-xl rounded-br-xl bg-[#1D1D1D] p-3">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina e perseverança!</p>
@@ -435,7 +434,7 @@
                             <p class="text-right font-medium mr-6">Beatriz Gonçalves</p>
                             <p class="text-xs lg:text-sm rounded-t-xl rounded-bl-xl bg-[#1D1D1D] p-3">Não existe treino milagroso. Não existe uma dieta mágica. O que existe é foco, disciplina e perseverança!</p>
                         </div>
-                        <img class="w-20 h-20 rounded-full" src="arquivos/imagens/perfil.png">
+                        <img class="w-20 h-20 rounded-full" src="arquivos/imagens/perfil.webp">
                     </div>
                 </div>
 
