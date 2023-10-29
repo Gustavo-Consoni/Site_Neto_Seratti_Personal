@@ -604,10 +604,6 @@ video {
   display: flex;
 }
 
-.hidden {
-  display: none;
-}
-
 .h-10 {
   height: 2.5rem;
 }
@@ -1137,6 +1133,10 @@ video {
     margin-bottom: 3rem;
   }
 
+  .max-lg\:hidden {
+    display: none;
+  }
+
   .max-lg\:w-full {
     width: 100%;
   }
@@ -1190,6 +1190,10 @@ video {
 
   .lg\:mr-auto {
     margin-right: auto;
+  }
+
+  .lg\:hidden {
+    display: none;
   }
 
   .lg\:h-72 {

@@ -26,13 +26,13 @@
         <!-- Navbar -->
         <div :class="{ 'bg-black bg-opacity-80': scrolled }" class="w-full fixed top-0 z-10 flex items-center justify-between text-white duration-500 p-5 lg:px-12">
             <p class="text-2xl lg:text-4xl font-semibold">NETO SERATTI</p>
-            <div :class="{ 'hidden': mobile }" class="flex items-center font-medium space-x-16">
+            <div class="max-lg:hidden flex items-center font-medium space-x-16">
                 <a href="#apresentacao">APRESENTAÇÃO</a>
                 <a href="#depoimentos">DEPOIMENTOS</a>
                 <a href="#planos">PLANOS</a>
                 <a href="#duvidas">DÚVIDAS</a>
             </div>
-            <button :class="{ 'hidden': !mobile }" @click="sidebar = !sidebar">
+            <button class="lg:hidden" @click="sidebar = !sidebar">
                 <svg class="w-9 h-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
@@ -40,7 +40,7 @@
         </div>
 
         <!-- Mobile -->
-        <div :class="{ 'hidden': !mobile, '-translate-x-64': sidebar }" class="fixed top-0 -right-64 z-20 w-64 h-full text-white bg-[#092934] duration-500 space-y-8">
+        <div :class="{ '-translate-x-64': sidebar }" class="lg:hidden fixed top-0 -right-64 z-20 w-64 h-full text-white bg-[#092934] duration-500 space-y-8">
             <div class="flex items-center justify-between px-5 pt-5">
                 <p class="text-2xl font-semibold">MENU</p>
                 <button @click="sidebar = !sidebar">
@@ -77,17 +77,17 @@
                 </a>
             </div>
         </div>
-        <div :class="{ 'hidden': !mobile }" class="fixed top-0 left-0 z-10 w-full h-full bg-black bg-opacity-50" x-show="sidebar" @click="sidebar = !sidebar" x-transition.opacity.duration.500ms></div>
+        <div class="lg:hidden fixed top-0 left-0 z-10 w-full h-full bg-black bg-opacity-50" x-show="sidebar" @click="sidebar = !sidebar" x-transition.opacity.duration.500ms></div>
 
         <!-- Texto -->
         <div class="absolute inset-0 flex flex-col items-center lg:items-end justify-end lg:justify-center text-center lg:text-right text-white max-lg:pb-12 lg:pr-12 space-y-4">
             <p class="text-[1.4rem]/[1.75rem] lg:text-6xl lg:text-[#CEC746] font-semibold">SUA MELHOR FORMA <br> NUNCA ESTEVE TÃO PERTO</p>
-            <p :class="{ 'hidden': mobile }" class="text-sm lg:text-lg font-medium">"But I must explain to you how all this mistaken idea of denouncing <br> pleasure and praising pain was born and I will give system.</p>
+            <p class="max-lg:hidden text-sm lg:text-lg font-medium">"But I must explain to you how all this mistaken idea of denouncing <br> pleasure and praising pain was born and I will give system.</p>
             <a class="text-xl text-[#092934] font-bold rounded-md bg-[#CEC746] transition-transform ease-in-out hover:-translate-y-1 duration-500 px-9 py-3" href="#planos">COMECE AGORA!</a>
         </div>
 
         <!-- Contato -->
-        <div :class="{ 'hidden': mobile }" class="absolute bottom-12 right-12 z-10 flex items-center text-white space-x-8">
+        <div class="max-lg:hidden absolute bottom-12 right-12 z-10 flex items-center text-white space-x-8">
             <a class="transition-transform ease-in-out hover:-translate-y-1 duration-500" href="">
                 <img class="w-10 h-10" src="arquivos/icones/whatsapp.png">
             </a>
@@ -190,7 +190,7 @@
 
 
     <!-- Planos -->
-    <div class="bg-[#EDEDED] py-12 lg:py-16" id="planos">
+    <div class="bg-white py-12 lg:py-16" id="planos">
         <div class="w-[90%] lg:w-[80%] mx-auto space-y-12 lg:space-y-16">
 
             <!-- Titulo -->
