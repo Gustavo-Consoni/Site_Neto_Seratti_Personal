@@ -1254,9 +1254,9 @@ video {
     padding-right: 3rem;
   }
 
-  .lg\:py-16 {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+  .lg\:py-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   .lg\:py-32 {
@@ -1287,11 +1287,6 @@ video {
     line-height: 1;
   }
 
-  .lg\:text-\[3rem\]\/\[3\.5rem\] {
-    font-size: 3rem;
-    line-height: 3.5rem;
-  }
-
   .lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -1314,10 +1309,6 @@ video {
 }
 
 @media (min-width: 1280px) {
-  .xl\:w-\[350px\] {
-    width: 350px;
-  }
-
   .xl\:w-\[70\%\] {
     width: 70%;
   }
