@@ -578,11 +578,6 @@ video {
   z-index: 20;
 }
 
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -636,10 +631,6 @@ video {
   height: 2.25rem;
 }
 
-.h-\[600px\] {
-  height: 600px;
-}
-
 .h-\[94vh\] {
   height: 94vh;
 }
@@ -686,6 +677,10 @@ video {
 
 .w-9 {
   width: 2.25rem;
+}
+
+.w-\[300px\] {
+  width: 300px;
 }
 
 .w-\[90\%\] {
@@ -747,12 +742,6 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(4rem * var(--tw-space-x-reverse));
   margin-left: calc(4rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-x-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -985,13 +974,8 @@ video {
   padding-bottom: 0.75rem;
 }
 
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.pb-3 {
-  padding-bottom: 0.75rem;
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 
 .pb-4 {
@@ -1038,11 +1022,6 @@ video {
   line-height: 1;
 }
 
-.text-\[0\.7rem\]\/\[1rem\] {
-  font-size: 0.7rem;
-  line-height: 1rem;
-}
-
 .text-\[1\.4rem\]\/\[1\.75rem\] {
   font-size: 1.4rem;
   line-height: 1.75rem;
@@ -1050,11 +1029,6 @@ video {
 
 .text-\[1\.75rem\]\/\[2\.25rem\] {
   font-size: 1.75rem;
-  line-height: 2.25rem;
-}
-
-.text-\[1\.7rem\]\/\[2\.25rem\] {
-  font-size: 1.7rem;
   line-height: 2.25rem;
 }
 
@@ -1094,6 +1068,11 @@ video {
   color: rgb(9 41 52 / var(--tw-text-opacity));
 }
 
+.text-\[\#CEC746\] {
+  --tw-text-opacity: 1;
+  color: rgb(206 199 70 / var(--tw-text-opacity));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -1111,12 +1090,12 @@ video {
   transition-duration: 150ms;
 }
 
-.duration-500 {
-  transition-duration: 500ms;
+.duration-1000 {
+  transition-duration: 1000ms;
 }
 
-.duration-700 {
-  transition-duration: 700ms;
+.duration-500 {
+  transition-duration: 500ms;
 }
 
 .ease-in-out {
@@ -1202,10 +1181,6 @@ video {
     margin-left: auto;
   }
 
-  .lg\:mr-8 {
-    margin-right: 2rem;
-  }
-
   .lg\:mr-auto {
     margin-right: auto;
   }
@@ -1236,10 +1211,6 @@ video {
 
   .lg\:w-\[80\%\] {
     width: 80%;
-  }
-
-  .lg\:max-w-sm {
-    max-width: 24rem;
   }
 
   .lg\:basis-1\/2 {
@@ -1343,6 +1314,10 @@ video {
 }
 
 @media (min-width: 1280px) {
+  .xl\:w-\[350px\] {
+    width: 350px;
+  }
+
   .xl\:w-\[70\%\] {
     width: 70%;
   }
