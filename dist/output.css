@@ -1214,6 +1214,10 @@ video {
     width: 90%;
   }
 
+  .xl\:flex-1 {
+    flex: 1 1 0%;
+  }
+
   .xl\:basis-1\/2 {
     flex-basis: 50%;
   }
