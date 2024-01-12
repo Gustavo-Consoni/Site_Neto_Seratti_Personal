@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria - Neto Seratti</title>
+    <!-- Tailwindcss -->
+    <link href="dist/output.css" rel="stylesheet">
+    <!-- Alpinejs -->
+    <script defer src="script.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.1/dist/cdn.min.js"></script>
-    <link href="dist/output.css" rel="stylesheet">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap">
-    <title>Consultoria - Neto Seratti</title>
     <style>
         * {
             font-family: 'Montserrat', sans-serif;
@@ -19,85 +23,101 @@
 		}
     </style>
 </head>
-<body x-data="{ sidebar: false, open: null, scrolled: false }" @scroll.window="scrolled = window.scrollY > 0">
+<body x-data="alpine" @scroll.window="updateScroll">
 
     <!-- Home -->
-    <div class="relative">
+    <div class="relative" id="inicio">
 
         <!-- Capa -->
-        <img class="w-full h-[94vh] lg:h-screen object-cover" :src="window.innerWidth <= 1024 ? 'arquivos/imagens/capa_mobile.webp' : 'arquivos/imagens/capa_desktop.webp'">
+        <img class="w-full h-[94vh] xl:h-screen object-cover" :src="window.innerWidth <= 1024 ? 'arquivos/imagens/capa_mobile.webp' : 'arquivos/imagens/capa_desktop.webp'" loading="lazy">
 
         <!-- Navbar -->
-        <div :class="{ 'bg-black bg-opacity-80': scrolled }" class="w-full fixed top-0 z-10 flex items-center justify-between text-white duration-500 p-5 lg:px-12">
-            <p class="text-2xl lg:text-4xl font-semibold">NETO SERATTI</p>
-            <div class="max-lg:hidden flex items-center font-medium space-x-16">
+        <div :class="{ 'bg-black bg-opacity-70': scrolled }" class="w-full fixed top-0 z-10 flex items-center justify-between text-white duration-500 p-6 xl:px-12">
+            <p class="text-2xl xl:text-4xl font-bold tracking-wide">NETO SERATTI</p>
+            <div class="max-xl:hidden flex items-center text-lg font-semibold space-x-16">
+                <a href="#inicio">INÍCIO</a>
                 <a href="#apresentacao">APRESENTAÇÃO</a>
                 <a href="#depoimentos">DEPOIMENTOS</a>
                 <a href="#planos">PLANOS</a>
-                <a href="#duvidas">DÚVIDAS</a>  
+                <a href="#duvidas">DÚVIDAS</a>
             </div>
-            <button class="lg:hidden" @click="sidebar = !sidebar">
-                <svg class="w-9 h-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <button class="xl:hidden" @click="sidebar = !sidebar">
+                <svg class="w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
-        </div>
+        </div>  
 
         <!-- Mobile -->
-        <div :class="{ '-translate-x-64': sidebar }" class="lg:hidden fixed top-0 -right-64 z-20 w-64 h-full text-white bg-[#092934] duration-500 space-y-8">
-            <div class="flex items-center justify-between px-5 pt-5">
-                <p class="text-2xl font-semibold">MENU</p>
+        <div :class="{'-translate-x-64': sidebar}" class="xl:hidden fixed top-0 -right-64 z-40 w-64 h-full text-white tracking-wide bg-[#092934] duration-500 space-y-8">
+            <div class="flex items-center justify-between px-6 pt-6">
+                <p class="text-3xl font-bold">MENU</p>
                 <button @click="sidebar = !sidebar">
-                    <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <svg class="w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
-            <div class="flex flex-col text-sm px-5 space-y-4">
-                <a class="flex items-center border-b p-2 space-x-4" href="#apresentacao" @click="sidebar = !sidebar">
-                    <img class="w-6 h-6" src="arquivos/icones/apresentacao.png">
-                    <p>APRESENTAÇÃO</p>
+            <div class="flex flex-col font-medium px-4 space-y-4">
+                <a class="flex items-center duration-500 p-2 space-x-4" href="#inicio" @click="sidebar = !sidebar">
+                    <svg class="w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z" />
+                        <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z" />
+                    </svg>
+                    <p class="-mb-1.5">INÍCIO</p>
                 </a>
-                <a class="flex items-center border-b p-2 space-x-4" href="#depoimentos" @click="sidebar = !sidebar">
-                    <img class="w-6 h-6" src="arquivos/icones/depoimentos.png">
-                    <p>DEPOIMENTOS</p>
+                <a class="flex items-center duration-500 p-2 space-x-4" href="#apresentacao" @click="sidebar = !sidebar">
+                    <svg class="w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+                    </svg>
+                    <p class="-mb-1">APRESENTAÇÃO</p>
                 </a>
-                <a class="flex items-center border-b p-2 space-x-4" href="#planos" @click="sidebar = !sidebar">
-                    <img class="w-6 h-6" src="arquivos/icones/planos.png">
-                    <p>PLANOS</p>
+                <a class="flex items-center duration-500 p-2 space-x-4" href="#depoimentos" @click="sidebar = !sidebar">
+                    <svg class="w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4.848 2.771A49.144 49.144 0 0 1 12 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97a48.901 48.901 0 0 1-3.476.383.39.39 0 0 0-.297.17l-2.755 4.133a.75.75 0 0 1-1.248 0l-2.755-4.133a.39.39 0 0 0-.297-.17 48.9 48.9 0 0 1-3.476-.384c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.68 3.348-3.97ZM6.75 8.25a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 0 1.5h-9a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H7.5Z" clip-rule="evenodd" />
+                    </svg>
+                    <p class="-mb-1">DEPOIMENTOS</p>
                 </a>
-                <a class="flex items-center border-b p-2 space-x-4" href="#duvidas" @click="sidebar = !sidebar">
-                    <img class="w-6 h-6" src="arquivos/icones/duvidas.png">
-                    <p>DÚVIDAS</p>
+                <a class="flex items-center duration-500 p-2 space-x-4" href="#planos" @click="sidebar = !sidebar">
+                    <svg class="w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />
+                    </svg>
+                    <p class="-mb-1.5">PLANOS</p>
+                </a>
+                <a class="flex items-center duration-500 p-2 space-x-4" href="#duvidas" @click="sidebar = !sidebar">
+                    <svg class="w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.777-2.366-.777-3.255 0a.75.75 0 0 1-.988-1.129c1.454-1.272 3.776-1.272 5.23 0 1.513 1.324 1.513 3.518 0 4.842a3.75 3.75 0 0 1-.837.552c-.676.328-1.028.774-1.028 1.152v.75a.75.75 0 0 1-1.5 0v-.75c0-1.279 1.06-2.107 1.875-2.502.182-.088.351-.199.503-.331.83-.727.83-1.857 0-2.584ZM12 18a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
+                    </svg>
+                    <p class="-mb-1">DÚVIDAS</p>
                 </a>
             </div>
             <div class="flex items-center justify-center text-white space-x-4">
-                <a class="hover:-translate-y-1 duration-500" href="https://api.whatsapp.com/send?phone=5519997647654">
-                    <img class="w-7 h-7" src="arquivos/icones/whatsapp.png">
+                <a href="https://api.whatsapp.com/send?phone=5519997647654" target="_blank">
+                    <svg class="w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.50002 12C3.50002 7.30558 7.3056 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C10.3278 20.5 8.77127 20.0182 7.45798 19.1861C7.21357 19.0313 6.91408 18.9899 6.63684 19.0726L3.75769 19.9319L4.84173 17.3953C4.96986 17.0955 4.94379 16.7521 4.77187 16.4751C3.9657 15.176 3.50002 13.6439 3.50002 12ZM12 1.5C6.20103 1.5 1.50002 6.20101 1.50002 12C1.50002 13.8381 1.97316 15.5683 2.80465 17.0727L1.08047 21.107C0.928048 21.4637 0.99561 21.8763 1.25382 22.1657C1.51203 22.4552 1.91432 22.5692 2.28599 22.4582L6.78541 21.1155C8.32245 21.9965 10.1037 22.5 12 22.5C17.799 22.5 22.5 17.799 22.5 12C22.5 6.20101 17.799 1.5 12 1.5ZM14.2925 14.1824L12.9783 15.1081C12.3628 14.7575 11.6823 14.2681 10.9997 13.5855C10.2901 12.8759 9.76402 12.1433 9.37612 11.4713L10.2113 10.7624C10.5697 10.4582 10.6678 9.94533 10.447 9.53028L9.38284 7.53028C9.23954 7.26097 8.98116 7.0718 8.68115 7.01654C8.38113 6.96129 8.07231 7.046 7.84247 7.24659L7.52696 7.52195C6.76823 8.18414 6.3195 9.2723 6.69141 10.3741C7.07698 11.5163 7.89983 13.314 9.58552 14.9997C11.3991 16.8133 13.2413 17.5275 14.3186 17.8049C15.1866 18.0283 16.008 17.7288 16.5868 17.2572L17.1783 16.7752C17.4313 16.5691 17.5678 16.2524 17.544 15.9269C17.5201 15.6014 17.3389 15.308 17.0585 15.1409L15.3802 14.1409C15.0412 13.939 14.6152 13.9552 14.2925 14.1824Z" fill="#e0e0e0"></path></g></svg>
                 </a>
                 <div class="border h-7"></div>
-                <a class="hover:-translate-y-1 duration-500" href="https://www.instagram.com/personalnetoseratti">
-                    <img class="w-7 h-7" src="arquivos/icones/instagram.png">
+                <a href="https://www.instagram.com/personalnetoseratti" target="_blank">
+                    <svg class="w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#e0e0e0"></path><path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="#e0e0e0"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="#e0e0e0"></path></g></svg>
                 </a>
             </div>
         </div>
-        <div class="lg:hidden fixed top-0 left-0 z-10 w-full h-full bg-black bg-opacity-50" x-show="sidebar" @click="sidebar = !sidebar" x-transition.opacity.duration.500ms x-cloak></div>
+        <div class="xl:hidden fixed top-0 left-0 z-10 w-full h-full bg-black bg-opacity-50" x-show="sidebar" @click="sidebar = !sidebar" x-transition.opacity.duration.500ms x-cloak></div>
 
         <!-- Texto -->
-        <div class="absolute inset-0 flex flex-col items-center lg:items-end justify-end lg:justify-center text-center lg:text-right text-white max-lg:pb-12 lg:pr-12 space-y-6">
-            <p class="text-[1.4rem]/[1.75rem] lg:text-6xl lg:text-[#CEC746] font-semibold">SUA MELHOR FORMA <br> NUNCA ESTEVE TÃO PERTO</p>
-            <p class="max-lg:hidden text-sm lg:text-lg font-medium">"A partir de agora, a decisão de transformar o seu corpo está nas suas mãos, <br> estou aqui para te guiar, apoiar e potencializar todo esse processo"</p>
-            <a class="text-xl text-[#092934] font-bold rounded-md bg-[#CEC746] hover:-translate-y-1 duration-500 px-9 py-3" href="#planos">COMECE AGORA</a>
+        <div class="absolute inset-0 flex flex-col items-center xl:items-end justify-end xl:justify-center text-center xl:text-right text-white max-xl:pb-12 xl:pr-12 space-y-6">
+            <p class="text-[1.4rem]/[1.75rem] xl:text-6xl 2xl:text-7xl xl:text-[#CEC746] font-semibold max-xl:tracking-wide">SUA MELHOR FORMA <br> NUNCA ESTEVE TÃO PERTO</p>
+            <p class="max-xl:hidden text-sm xl:text-lg 2xl:text-xl font-medium">"A partir de agora, a decisão de transformar o seu corpo está nas suas mãos, <br> estou aqui para te guiar, apoiar e potencializar todo esse processo"</p>
+            <a class="text-xl text-[#092934] font-bold rounded-md bg-[#CEC746] px-9 py-3" href="#planos">COMECE AGORA</a>
         </div>
 
         <!-- Contato -->
-        <div class="max-lg:hidden absolute bottom-12 right-12 z-10 flex items-center text-white space-x-8">
-            <a class="hover:-translate-y-1 duration-500" href="https://api.whatsapp.com/send?phone=5519997647654">
-                <img class="w-10 h-10" src="arquivos/icones/whatsapp.png">
+        <div class="max-xl:hidden absolute bottom-12 right-12 z-10 flex items-center text-white space-x-8">
+            <a href="https://api.whatsapp.com/send?phone=5519997647654" target="_blank">
+                <svg class="w-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.50002 12C3.50002 7.30558 7.3056 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C10.3278 20.5 8.77127 20.0182 7.45798 19.1861C7.21357 19.0313 6.91408 18.9899 6.63684 19.0726L3.75769 19.9319L4.84173 17.3953C4.96986 17.0955 4.94379 16.7521 4.77187 16.4751C3.9657 15.176 3.50002 13.6439 3.50002 12ZM12 1.5C6.20103 1.5 1.50002 6.20101 1.50002 12C1.50002 13.8381 1.97316 15.5683 2.80465 17.0727L1.08047 21.107C0.928048 21.4637 0.99561 21.8763 1.25382 22.1657C1.51203 22.4552 1.91432 22.5692 2.28599 22.4582L6.78541 21.1155C8.32245 21.9965 10.1037 22.5 12 22.5C17.799 22.5 22.5 17.799 22.5 12C22.5 6.20101 17.799 1.5 12 1.5ZM14.2925 14.1824L12.9783 15.1081C12.3628 14.7575 11.6823 14.2681 10.9997 13.5855C10.2901 12.8759 9.76402 12.1433 9.37612 11.4713L10.2113 10.7624C10.5697 10.4582 10.6678 9.94533 10.447 9.53028L9.38284 7.53028C9.23954 7.26097 8.98116 7.0718 8.68115 7.01654C8.38113 6.96129 8.07231 7.046 7.84247 7.24659L7.52696 7.52195C6.76823 8.18414 6.3195 9.2723 6.69141 10.3741C7.07698 11.5163 7.89983 13.314 9.58552 14.9997C11.3991 16.8133 13.2413 17.5275 14.3186 17.8049C15.1866 18.0283 16.008 17.7288 16.5868 17.2572L17.1783 16.7752C17.4313 16.5691 17.5678 16.2524 17.544 15.9269C17.5201 15.6014 17.3389 15.308 17.0585 15.1409L15.3802 14.1409C15.0412 13.939 14.6152 13.9552 14.2925 14.1824Z" fill="#e0e0e0"></path></g></svg>
             </a>
             <div class="border h-10"></div>
-            <a class="hover:-translate-y-1 duration-500" href="https://www.instagram.com/personalnetoseratti">
-                <img class="w-10 h-10" src="arquivos/icones/instagram.png">
+            <a href="https://www.instagram.com/personalnetoseratti" target="_blank">
+                <svg class="w-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#e0e0e0"></path><path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="#e0e0e0"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="#e0e0e0"></path></g></svg>
             </a>
         </div>
 
@@ -105,11 +125,11 @@
 
 
     <!-- Apresentação -->
-    <div class="bg-[#EDEDED] py-12 lg:py-20" id="apresentacao">
-        <div class="w-[90%] lg:w-[80%] text-[#092934] mx-auto space-y-6 lg:space-y-12">
+    <div class="bg-[#EDEDED] py-12 xl:py-24" id="apresentacao">
+        <div class="w-[90%] xl:w-[80%] text-[#092934] mx-auto space-y-6 xl:space-y-12">
 
             <!-- Titulo -->
-            <div class="w-fit text-3xl lg:text-5xl text-center tracking-widest border-b-[3px] border-[#CEC746] mx-auto lg:px-12 pb-2">
+            <div class="w-fit text-3xl xl:text-5xl text-center tracking-wider border-b-[3px] border-[#CEC746] mx-auto xl:px-12 pb-2">
                 <p>UM POUCO DA</p>
                 <p class="font-bold">MINHA HISTÓRIA</p>
             </div>
@@ -134,7 +154,7 @@
 
                 <!-- Video -->
                 <div class="max-xl:w-full xl:basis-1/2">
-                    <img class="xl:mr-auto rounded-2xl" src="arquivos/imagens/thumb.webp">
+                    <img class="xl:mr-auto rounded-2xl" src="arquivos/imagens/thumb.webp" loading="lazy">
                 </div>
 
             </div>
@@ -144,291 +164,93 @@
 
 
     <!-- Depoimentos em Video -->
-    <div class="bg-[#092934] py-12 lg:py-20" id="depoimentos">
-        <div class="w-[90%] mx-auto space-y-6 lg:space-y-12">
+    <div class="bg-[#092934] py-12 xl:py-24" id="depoimentos">  
+        <div class="w-[90%] xl:w-[80%] 2xl:w-[60%] mx-auto space-y-6 xl:space-y-12">
         
             <!-- Titulo -->
             <div class="text-white text-center space-y-4">
-                <p class="text-3xl lg:text-5xl">DEPOIMENTOS <br> <span class="text-[#CEC746] font-bold">DOS MEUS ALUNOS</span></p>
-                <p class="lg:text-lg">Nada melhor do que algumas palavrinhas para você descobrir o porquê a minha consultoria é tão elogiada</p>
+                <p class="text-3xl xl:text-6xl font-semibold">DEPOIMENTOS <br> <span class="text-[#CEC746] font-bold">DOS MEUS ALUNOS</span></p>
+                <p class="text-sm xl:text-xl">Nada melhor do que algumas palavrinhas para você descobrir o porquê a minha consultoria é tão elogiada</p>
             </div>
 
             <!-- Videos -->
-            <div class="flex max-lg:flex-col items-center justify-center mx-auto max-lg:space-y-12 lg:space-x-12">
-
-                <!-- 1 -->
-                <div>
-                    <video class="rounded-md w-[300px]" controls>
-                        <source src="arquivos/videos/depoimento1.mp4#t=0.001" type="video/mp4">
-                    </video>
-                </div>
-
-                <!-- 2 -->
-                <div>
-                    <video class="rounded-md w-[300px]" controls>
-                        <source src="arquivos/videos/depoimento2.mp4#t=0.001" type="video/mp4">
-                    </video>
-                </div>
-
-                <!-- 3 -->
-                <div>
-                    <video class="rounded-md w-[300px]" controls>
-                        <source src="arquivos/videos/depoimento3.mp4#t=0.001" type="video/mp4">
-                    </video>
-                </div>
-
+            <div class="flex max-xl:flex-col items-center justify-center gap-12">
+                <template x-for="depoimento in depoimentos_video">
+                    <div>
+                        <video class="rounded w-[300px]" controls>
+                            <source :src="depoimento.link" type="video/mp4">
+                        </video>
+                    </div>
+                </template>
             </div>
 
         </div>
     </div>
 
 
-    <!-- Planos -->
-    <div class="bg-white py-12 lg:py-20" id="planos">
-        <div class="w-[90%] mx-auto space-y-6 lg:space-y-12">
+    <!-- Planos -->        
+    <div class="bg-white py-12 xl:py-24" id="planos">
+        <div class="w-[90%] xl:w-[80%] 2xl:w-[70%] mx-auto space-y-6 xl:space-y-12">
 
-            <!-- Titulo -->
             <div class="text-[#092934] text-center space-y-4">
-                <p class="text-[1.75rem]/[2.25rem] lg:text-5xl font-bold">ESCOLHA SEU PLANO</p>
-                <p class="lg:text-lg font-medium">Comece sua jornada alinhando os seus objetivos em direção a uma vida mais saudável e ativa</p>
+                <p class="text-[1.75rem]/[2.25rem] xl:text-6xl font-bold">ESCOLHA SEU PLANO</p>
+                <p class="text-sm xl:text-xl font-medium">Comece sua jornada alinhando os seus objetivos em direção a uma vida mais saudável e ativa</p>
             </div>
 
-            <!-- Videos -->
-            <div class="flex max-xl:flex-col max-xl:items-center justify-center max-xl:space-y-12 xl:space-x-12">
-
-                <!-- 1 -->
-                <div class="flex flex-col shrink-0 max-w-sm rounded-2xl shadow-md border bg-white">
-                    
-                    <div class="text-white text-center rounded-t-2xl bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-8 space-y-4">
-                        <p class="text-4xl font-semibold tracking-widest border-b-2 pb-4">TRIMESTRAL</p>
-                        <p class="text-sm font-medium">Experimente e comprove a diferença que a minha consultoria pode fazer</p>
+            <div class="flex max-xl:flex-col max-xl:items-center justify-center gap-12">
+                <template x-for="plano in planos">
+                    <div class="flex flex-col max-w-sm rounded-3xl shadow-xl border bg-white">
+                        <div :class="plano.cores" class="text-white text-center rounded-t-3xl bg-gradient-to-br from-[1%] to-[60%] p-8 space-y-4">
+                            <p class="text-4xl font-semibold tracking-widest border-b-2 pb-4" x-text="plano.nome"></p>
+                            <p class="text-sm font-medium">Experimente e comprove a diferença que a minha consultoria pode fazer</p>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center justify-between p-8 gap-8">
+                            <div class="flex justify-center font-medium">
+                                <p class="text-2xl mr-2">R$</p>
+                                <p class="text-7xl font-bold" x-text="plano.preco"></p>
+                                <p class="flex items-end text-2xl">/ mês</p>
+                            </div>
+                            <div class="flex flex-col gap-6">
+                                <template x-for="vantagem in plano.vantagens">
+                                    <div class="flex items-center space-x-4">
+                                        <div :class="plano.cores" class="text-white shrink-0 rounded-full bg-gradient-to-br from-[1%] to-[60%] p-1.5">
+                                            <img class="w-3 h-3" src="arquivos/icones/check.png" loading="lazy">
+                                        </div>
+                                        <p class="text-sm font-medium" x-text="vantagem"></p>
+                                    </div>
+                                </template>
+                            </div>
+                            <div class="flex justify-center">
+                                <a :class="plano.cores" class="text-xl text-white font-bold rounded-md bg-gradient-to-br from-[1%] to-[60%] px-9 py-3" :href="plano.link">COMECE AGORA</a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="flex-1 flex flex-col items-center justify-between p-8 space-y-8">
-
-                        <div class="flex justify-center font-medium">
-                            <p class="text-2xl mr-2">R$</p>
-                            <p class="text-7xl font-bold">135</p>
-                            <p class="flex items-end text-2xl">/ mês</p>
-                        </div>
-
-                        <div class="space-y-6">
-
-                            <div class="flex items-center space-x-4">
-                                <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                    <img class="w-3 h-3" src="arquivos/icones/check.png">
-                                </div>
-                                <p class="text-sm font-medium">Renovação de 2 planilhas</p>
-                            </div>
-    
-                            <div class="flex items-center space-x-4">
-                                <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                    <img class="w-3 h-3" src="arquivos/icones/check.png">
-                                </div>
-                                <p class="text-sm font-medium">Suporte pelo WhatsApp / Aplicativo</p>
-                            </div>
-    
-                            <div class="flex items-center space-x-4">
-                                <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                    <img class="w-3 h-3" src="arquivos/icones/check.png">
-                                </div>
-                                <p class="text-sm font-medium">Atendimento personalizado</p>    
-                            </div>
-
-                        </div>
-
-                        <div class="flex justify-center">
-                            <a class="text-xl text-white font-semibold rounded-md bg-gradient-to-br from-[#00EBFF] from-[1%] to-[#172439] to-[60%] hover:-translate-y-1 duration-500 px-9 py-3" href="https://pages.mfitpersonal.com.br/index?acao=page&tipo=2&buyPage=51582&page=51582">COMECE AGORA</a>
-                        </div>
-
-                    </div>
-                    
-                </div>
-
-                <!-- 2 -->
-                <div class="shrink-0 max-w-sm rounded-2xl shadow-md border bg-white">
-                    
-                    <div class="text-white text-center rounded-t-2xl bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-8 space-y-4">
-                        <p class="text-4xl font-semibold tracking-widest border-b-2 pb-4">SEMESTRAL</p>
-                        <p class="text-sm font-medium">Aqui se encontra o equilíbrio perfeito entre compromisso e flexibilidade</p>
-                    </div>
-
-                    <div class="flex flex-col items-center p-8 space-y-8">
-                        
-                        <div class="flex justify-center font-medium">
-                            <p class="text-2xl mr-2">R$</p>
-                            <p class="text-7xl font-bold">121</p>
-                            <p class="flex items-end text-2xl">/ mês</p>
-                        </div>
-
-                        <div class="space-y-6">
-
-                            <div class="flex items-center space-x-4">
-                                <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                    <img class="w-3 h-3" src="arquivos/icones/check.png">
-                                </div>
-                                <p class="text-sm font-medium">10% de desconto</p>
-                            </div>
-    
-                            <div class="flex items-center space-x-4">
-                                <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                    <img class="w-3 h-3" src="arquivos/icones/check.png">
-                                </div>
-                                <p class="text-sm font-medium">Renovação de 4 planilhas</p>
-                            </div>
-    
-                            <div class="flex items-center space-x-4">
-                                <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                    <img class="w-3 h-3" src="arquivos/icones/check.png">
-                                </div>
-                                <p class="text-sm font-medium">Suporte pelo WhatsApp / Aplicativo</p>
-                            </div>
-    
-                            <div class="flex items-center space-x-4">
-                                <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] p-1.5">
-                                    <img class="w-3 h-3" src="arquivos/icones/check.png">
-                                </div>
-                                <p class="text-sm font-medium">Atendimento personalizado</p>
-                            </div>
-
-                        </div>
-
-                        <div class="flex justify-center">
-                            <a class="text-xl text-white font-semibold rounded-md bg-gradient-to-br from-[#00EBAA] from-[1%] to-[#172439] to-[60%] hover:-translate-y-1 duration-500 px-9 py-3" href="https://pages.mfitpersonal.com.br/index?acao=page&tipo=2&buyPage=51590&page=51582">COMECE AGORA</a>
-                        </div>
-
-                    </div>
-                    
-                </div>
-
-                <!-- 3 -->
-                <div class="shrink-0 max-w-sm rounded-2xl shadow-md border bg-white">
-                    
-                    <div class="text-white text-center rounded-t-2xl bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[60%] p-8 space-y-4">
-                        <p class="text-4xl font-semibold tracking-widest border-b-2 pb-4">ANUAL</p>
-                        <p class="text-sm font-medium">Para pessoas que buscam resultados excepcionais e duradouros</p>
-                    </div>
-
-                    <div class="flex flex-col items-center p-8 space-y-8">
-                        
-                        <div class="flex justify-center font-medium">
-                            <p class="text-2xl mr-2">R$</p>
-                            <p class="text-7xl font-bold">108</p>
-                            <p class="flex items-end text-2xl">/ mês</p>
-                        </div>
-
-                        <div class="space-y-6">
-
-                            <div class="flex items-center space-x-4">
-                                <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
-                                    <img class="w-3 h-3" src="arquivos/icones/check.png">
-                                </div>
-                                <p class="text-sm font-medium">20% de desconto</p>
-                            </div>
-    
-                            <div class="flex items-center space-x-4">
-                                <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
-                                    <img class="w-3 h-3" src="arquivos/icones/check.png">
-                                </div>
-                                <p class="text-sm font-medium">Renovação de 8 planilhas </p>
-                            </div>
-    
-                            <div class="flex items-center space-x-4">
-                                <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
-                                    <img class="w-3 h-3" src="arquivos/icones/check.png">
-                                </div>
-                                <p class="text-sm font-medium">Suporte pelo WhatsApp / Aplicativo</p>
-                            </div>
-    
-                            <div class="flex items-center space-x-4">
-                                <div class="text-white shrink-0 rounded-full bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[70%] p-1.5">
-                                    <img class="w-3 h-3" src="arquivos/icones/check.png">
-                                </div>
-                                <p class="text-sm font-medium">Atendimento personalizado</p>
-                            </div>
-
-                        </div>
-
-                        <div class="flex justify-center">
-                            <a class="text-xl text-white font-semibold rounded-md bg-gradient-to-br from-[#C91A40] from-[1%] to-[#172439] to-[60%] hover:-translate-y-1 duration-500 px-9 py-3" href="https://pages.mfitpersonal.com.br/index?acao=page&tipo=2&buyPage=51591&page=51582">COMECE AGORA</a>
-                        </div>
-
-                    </div>
-                    
-                </div>
-
+                </template>
             </div>
-
+            
         </div>
     </div>
-
 
     <!-- Perguntas Frequentes -->
-    <div class="bg-[#EDEDED] py-12 lg:py-20" id="duvidas">
-        <div class="w-[90%] xl:w-[60%] text-[#092934] mx-auto space-y-6 lg:space-y-12">
+    <div class="bg-[#EDEDED] py-12 xl:py-24" id="duvidas">
+        <div class="w-[90%] xl:w-[60%] 2xl:w-[50%] text-[#092934] mx-auto space-y-6 xl:space-y-12">
 
-            <p class="text-3xl lg:text-5xl text-center font-bold">PERGUNTAS FREQUENTES</p>
+            <p class="text-3xl xl:text-5xl text-center font-bold">PERGUNTAS FREQUENTES</p>
 
-            <div class="flex flex-col space-y-6">
-                <button class="w-full text-sm lg:text-base text-left rounded-2xl shadow-md border bg-white p-6" @click="open != 1 ? open = 1 : open = null">
-                    <div class="flex justify-between space-x-4">
-                        <p class="font-semibold">QUANDO O TREINO ESTARÁ PRONTO?</p>
-                        <svg :class="{ 'rotate-180': open == 1 }" class="w-6 h-6 shrink-0 duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </div>
-                    <div x-show="open == 1" x-collapse.duration.500ms x-cloak>
-                        <p class="pt-2">Após a compra e o preenchimento de todas as informações, e o envio das fotos, você receberá o seu treino em 4 dias úteis.</p>
-                    </div>
-                </button>
-    
-                <button class="w-full text-sm lg:text-base text-left rounded-2xl shadow-md border bg-white p-6" @click="open != 2 ? open = 2 : open = null">
-                    <div class="flex justify-between space-x-4">
-                        <p class="font-semibold">COMO SERÁ O ACOMPANHAMENTO?</p>
-                        <svg :class="{ 'rotate-180': open == 2 }" class="w-6 h-6 shrink-0 duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </div>
-                    <div x-show="open == 2" x-collapse.duration.500ms x-cloak>
-                        <p class="pt-2">Estarei acompanhando o seu desenvolvimento nos treinos através de feedback e farei os ajustes necessários no treino na semana, para que você possa alcançar seus objetivos.</p>
-                    </div>
-                </button>
-    
-                <button class="w-full text-sm lg:text-base text-left rounded-2xl shadow-md border bg-white p-6" @click="open != 3 ? open = 3 : open = null">
-                    <div class="flex justify-between space-x-4">
-                        <p class="font-semibold">POR ONDE POSSO TIRAR AS MINHAS DÚVIDAS?</p>
-                        <svg :class="{ 'rotate-180': open == 3 }" class="w-6 h-6 shrink-0 duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </div>
-                    <div x-show="open == 3" x-collapse.duration.500ms x-cloak>
-                        <p class="pt-2">O treino será enviado pelo aplicativo, onde você pode tirar suas dúvidas, e também pelo WhatsApp. Você terá todo o meu suporte individualizado, onde responderei às suas dúvidas e perguntas.</p>
-                    </div>
-                </button>
-    
-                <button class="w-full text-sm lg:text-base text-left rounded-2xl shadow-md border bg-white p-6" @click="open != 4 ? open = 4 : open = null">
-                    <div class="flex justify-between space-x-4">
-                        <p class="font-semibold">TERÁ DIETA JUNTO COM A PLANILHA DE TREINO?</p>
-                        <svg :class="{ 'rotate-180': open == 4 }" class="w-6 h-6 shrink-0 duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </div>
-                    <div x-show="open == 4" x-collapse.duration.500ms x-cloak>
-                        <p class="pt-2">A planilha de treino não incluirá uma dieta.</p>
-                    </div>
-                </button>
-    
-                <button class="w-full text-sm lg:text-base text-left rounded-2xl shadow-md border bg-white p-6" @click="open != 5 ? open = 5 : open = null">
-                    <div class="flex justify-between space-x-4">
-                        <p class="font-semibold">POR QUE DEVO CONFIAR NO SEU TRABALHO?</p>
-                        <svg :class="{ 'rotate-180': open == 5 }" class="w-6 h-6 shrink-0 duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </div>
-                    <div x-show="open == 5" x-collapse.duration.500ms x-cloak>
-                        <p class="pt-2">Estarei acompanhando você passo a passo nos seus treinos para que você alcance seu objetivo. Sou um profissional altamente competente e trabalho nesse mercado há anos, transformando a vida de centenas de pessoas. Tenho um propósito claro em minha vida, que é impulsionar o seu processo com excelência, de maneira que o seu treino seja flexível e eficaz!</p>
-                    </div>
-                </button>
+            <div class="flex flex-col gap-6">
+                <template x-for="(pergunta, index) in perguntas_frequentes">
+                    <button class="w-full text-sm xl:text-base text-left rounded-2xl shadow-md border bg-white p-6" @click="open != index ? open = index : open = null">
+                        <div class="flex xl:items-center justify-between space-x-4">
+                            <p class="font-semibold" x-text="pergunta.pergunta"></p>
+                            <svg :class="{ 'rotate-180': open == index }" class="w-6 xl:w-7 shrink-0 duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </div>
+                        <div x-show="open == index" x-collapse.duration.500ms x-cloak>
+                            <p class="pt-2" x-text="pergunta.resposta"></p>
+                        </div>
+                    </button>
+                </template>
             </div>
 
         </div>
@@ -436,41 +258,36 @@
 
 
     <!-- Depoimentos em Texto -->
-    <div class="bg-[#092934] py-12 lg:py-32">
-        <div class="w-[90%] xl:w-[70%] text-white mx-auto">
+    <div class="bg-[#092934] py-12 xl:py-24">
+        <div class="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[90%] 2xl:w-[80%] text-white mx-auto">
 
-            <div class="flex max-lg:flex-col items-center">
+            <div class="flex max-xl:flex-col items-center gap-12">
 
                 <!-- Motivação do Neto -->
-                <div class="lg:w-1/2 flex max-lg:flex-col items-center max-lg:text-center max-lg:space-y-4 lg:space-x-8">
-                    <img class="w-40 h-40 rounded-full" src="arquivos/imagens/perfil.webp">
+                <div class="xl:w-3/5 flex max-xl:flex-col items-center max-xl:text-center max-xl:space-y-4 xl:space-x-8">
+                    <img class="w-48 xl:w-52 rounded-full" src="arquivos/imagens/perfil.webp" loading="lazy">
                     <div class="space-y-4">
                         <p class="text-4xl font-bold">NETO SERATTI</p>
-                        <p class="text-sm">É importante compreender que não há treino milagroso. O que você realmente precisa entender é que requer foco, disciplina, comprometimento e, mais importante ainda, nunca desistir!</p>
+                        <p>É importante compreender que não há treino milagroso. O que você realmente precisa entender é que requer foco, disciplina, comprometimento e, mais importante ainda, nunca desistir!</p>
                         <div class="pt-2">
-                            <a class="w-fit flex text-xl text-[#092934] font-bold rounded-md bg-[#CEC746] hover:-translate-y-1 duration-500 max-lg:mx-auto px-9 py-3" href="#planos">COMECE AGORA</a>
+                            <a class="w-fit flex text-xl text-[#092934] font-bold rounded-md bg-[#CEC746] max-xl:mx-auto px-9 py-3" href="#planos">COMECE AGORA</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="max-lg:w-full border lg:h-72 lg:mx-12 max-lg:my-12"></div>
+                <div class="max-xl:w-full xl:h-64 border"></div>
 
                 <!-- Depoimentos -->
-                <div class="lg:w-1/2 space-y-8">
-                    <div class="flex items-end space-x-4">
-                        <img class="w-20 h-20 rounded-full" src="arquivos/imagens/depoimento1.webp">
-                        <div>
-                            <p class="font-medium ml-3">Marceli de Moraes Faria</p>
-                            <p class="text-xs lg:text-sm rounded-t-xl rounded-br-xl bg-[#1D1D1D] p-3">Comecei a treinar, e não via resultado, mas depois das orientações e ensinamentos sobre a consciência muscular, os resultados vieram.</p>
+                <div class="flex flex-col xl:w-2/5 gap-8">
+                    <template x-for="(depoimento, index) in depoimentos_rodape">
+                        <div :class="{'flex-row-reverse': index % 2 == 0}" class="flex items-end gap-6">
+                            <img class="w-16 xl:w-20 rounded-full" :src="depoimento.imagem_perfil" loading="lazy">
+                            <div>
+                                <p :class="index == 1 ? 'ml-3' : 'text-right mr-3'" class="font-medium" x-text="depoimento.nome"></p>
+                                <p :class="index == 1 ? 'rounded-br-xl' : 'rounded-bl-xl'" class="text-xs xl:text-sm rounded-t-xl bg-[#1D1D1D] p-3" x-text="depoimento.depoimento"></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-end space-x-4">
-                        <div>
-                            <p class="text-right font-medium mr-3">Bruno Fernando Faria</p>
-                            <p class="text-xs lg:text-sm rounded-t-xl rounded-bl-xl bg-[#1D1D1D] p-3">Excelente profissional, consegue conciliar os meus objetivos, com o meu tempo disponivel para treinar, montando treinos específicos!</p>
-                        </div>
-                        <img class="w-20 h-20 rounded-full" src="arquivos/imagens/depoimento2.webp">
-                    </div>
+                    </template>
                 </div>
 
             </div>
